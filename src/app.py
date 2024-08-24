@@ -63,8 +63,8 @@ if st.session_state['document_type'] and st.session_state['formatting_option']:
     # Define the image path based on the selected options
     image_path = f"images/{st.session_state['document_type'].lower()}_{st.session_state['formatting_option'].lower()}.png"
     
-    # Display the image
-    st.image(image_path, caption=f"Example of a {st.session_state['document_type']} in {st.session_state['formatting_option']} format")
+    # Display the image with resizing to 50% of original width
+    st.image(image_path, caption=f"Example of a {st.session_state['document_type']} in {st.session_state['formatting_option']} format", width=400)
 
     # Add a file uploader component, only show if both selections are made
     uploaded_file = st.file_uploader("Upload a document to begin", type=["docx", "pdf", "txt"])
