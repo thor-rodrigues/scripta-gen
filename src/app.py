@@ -93,8 +93,6 @@ if st.session_state['document_type'] and st.session_state['formatting_option']:
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
 
-            st.write(f"File saved at: {file_path}")
-
             # Show the "Generate" button
             if st.button("Generate"):
                 st.session_state['generate_clicked'] = True
