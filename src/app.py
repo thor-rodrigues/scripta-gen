@@ -1,5 +1,7 @@
 import streamlit as st
 import time
+import tempfile
+import os
 
 # Set the title of the landing page
 st.set_page_config(page_title="ScriptaGen - Document Generator", page_icon=":memo:")
@@ -68,11 +70,14 @@ if st.session_state['document_type']:
 
 # Show image and file uploader if both document type and formatting option are selected
 if st.session_state['document_type'] and st.session_state['formatting_option']:
-    # Define the image path based on the selected options
-    image_path = f"images/{st.session_state['document_type'].lower()}_{st.session_state['formatting_option'].lower()}.png"
+    # Define the image path based on the selected options (corrected)
+    image_path = os.path.join('images', f"{st.session_state['document_type'].lower()}_{st.session_state['formatting_option'].lower()}.png")
     
     # Display the image with resizing to 50% of original width
-    st.image(image_path, caption=f"Example of a {st.session_state['document_type']} in {st.session_state['formatting_option']} format", width=400)
+    if os.path.exists(image_path):
+        st.image(image_path, caption=f"Example of a {st.session_state['document_type']} in {st.session_state['formatting_option']} format", width=400)
+    else:
+        st.error(f"Image not found: {image_path}")
 
     # Add a file uploader component
     uploaded_file = st.file_uploader("Upload a document to begin", type=["docx", "pdf", "txt"])
@@ -80,19 +85,28 @@ if st.session_state['document_type'] and st.session_state['formatting_option']:
     # Check if a file is uploaded
     if uploaded_file is not None:
         st.success("File uploaded successfully!")
-        
-        # Show the "Generate" button
-        if st.button("Generate"):
-            st.session_state['generate_clicked'] = True
 
-        # If the "Generate" button is clicked, show a progress spinner for 5 seconds
-        if st.session_state['generate_clicked']:
-            with st.spinner('Processing your document...'):
-                time.sleep(5)  # Simulate processing time
-            st.success("Document generated successfully!")
+        # Create a temporary directory to store uploaded files
+        with tempfile.TemporaryDirectory() as temp_dir:
+            # Save the uploaded file to the temporary directory
+            file_path = os.path.join(temp_dir, uploaded_file.name)
+            with open(file_path, "wb") as f:
+                f.write(uploaded_file.getbuffer())
 
-            # Display the "Download document" button
-            st.button("Download document")
+            st.write(f"File saved at: {file_path}")
+
+            # Show the "Generate" button
+            if st.button("Generate"):
+                st.session_state['generate_clicked'] = True
+
+            # If the "Generate" button is clicked, show a progress spinner for 5 seconds
+            if st.session_state['generate_clicked']:
+                with st.spinner('Processing your document...'):
+                    time.sleep(5)  # Simulate processing time
+                st.success("Document generated successfully!")
+
+                # Display the "Download document" button
+                st.button("Download document")
 
 # Footer or contact information
 st.markdown("---")
