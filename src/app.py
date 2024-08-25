@@ -9,7 +9,7 @@ def local_css(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Load the CSS file
-local_css("src/styles/styles.css")
+local_css("styles/styles.css")
 
 # Create a header for the landing page using custom CSS class
 st.markdown('<h1 class="custom-title">ScriptaGen is the best way to create documents</h1>', unsafe_allow_html=True)
