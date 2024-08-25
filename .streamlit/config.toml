@@ -1,6 +1,0 @@
-[theme]
-primaryColor = "#4CAF50"            # A green primary color
-backgroundColor = "#f0f0f5"         # Light grey background
-secondaryBackgroundColor = "#ffffff" # White for container backgrounds
-textColor = "#333333"               # Dark grey text color
-font = "monospace"                 # Font family options: 'sans serif', 'serif', 'monospace'

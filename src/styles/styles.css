@@ -20,16 +20,21 @@ body, h1, h2, h3, h4, h5, h6, p, div, span, a {
     font-family: 'Inter', sans-serif;
 }
 
+/* Set the background color for the entire app */
+body {
+    background-color: #bca445;
+}
+
 /* Additional custom styles for specific elements */
 .custom-title {
     font-size: 48px;
+    color: #d8240c;
     text-align: center;
     font-family: 'Inter', sans-serif;
 }
 
 .custom-markdown {
     font-size: 18px;
-    color: #333333;
     margin-bottom: 20px;
     font-family: 'Inter', sans-serif;
 }
