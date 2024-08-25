@@ -78,7 +78,7 @@ if 'generate_clicked' not in st.session_state:
     st.session_state['generate_clicked'] = False
 
 # Add buttons for selecting the type of document using HTML
-st.markdown("#### Select the type of document you want to work on:")
+st.markdown("<h4 style='color: #333333;'>Select the type of document you want to work on:</h4>", unsafe_allow_html=True)
 
 # Use HTML to render buttons
 button_html = """
@@ -97,7 +97,7 @@ st.markdown(button_html, unsafe_allow_html=True)
 
 # Display formatting options if a document type is selected
 if st.session_state['document_type']:
-    st.markdown("#### Select the formatting option:")
+    st.markdown("<h4 style='color: #333333;'>Select the formatting option:</h4>", unsafe_allow_html=True)
 
     format_html = """
     <div style="text-align: center;">
