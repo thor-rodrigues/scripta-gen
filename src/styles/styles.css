@@ -1,0 +1,19 @@
+/* styles/styles.css */
+
+.custom-title {
+    font-size: 48px;
+    color: #4CAF50;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.custom-markdown {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.uploaded-file-info {
+    font-size: 16px;
+    color: #666666;
+}

@@ -3,20 +3,26 @@ import time
 import tempfile
 import os
 
-# Set the title of the landing page
-st.set_page_config(page_title="ScriptaGen - Document Generator", page_icon=":memo:")
+# Load external CSS file
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# Create a header for the landing page
-st.title("ScriptaGen is the best way to create documents")
+# Load the CSS file
+local_css("src/styles/styles.css")
 
-# Combined and concise introduction text
+# Create a header for the landing page using custom CSS class
+st.markdown('<h1 class="custom-title">ScriptaGen is the best way to create documents</h1>', unsafe_allow_html=True)
+
+# Continue with the rest of your Streamlit app
 st.markdown("""
-**ScriptaGen allows you to effortlessly create professional-looking content, such as resumes, letters, and reports.**  
-Simply upload your existing documents, and ScriptaGen's powerful AI will ensure your new documents are polished and presented in the best possible format.
-""")
+<div class="custom-markdown">
+    **ScriptaGen allows you to effortlessly create professional-looking content, such as resumes, letters, and reports.**  
+    Simply upload your existing documents, and ScriptaGen's powerful AI will ensure your new documents are polished and presented in the best possible format.
+</div>
+""", unsafe_allow_html=True)
 
-# Section to get started
-st.markdown("### Get Started")
+# The rest of your Streamlit code here...
 
 # Initialize session state variables
 if 'document_type' not in st.session_state:
@@ -92,6 +98,8 @@ if st.session_state['document_type'] and st.session_state['formatting_option']:
             file_path = os.path.join(temp_dir, uploaded_file.name)
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
+
+            st.write(f"File saved at: {file_path}")
 
             # Show the "Generate" button
             if st.button("Generate"):
