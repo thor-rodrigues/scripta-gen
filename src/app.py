@@ -3,26 +3,69 @@ import time
 import tempfile
 import os
 
-# Load external CSS file
+# Function to inject custom CSS
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# Load the CSS file
+# Inject additional CSS to change background color
+st.markdown(
+    """
+    <style>
+    /* Set background color for the main content area */
+    .main {
+        background-color: #fffefa;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Load the main CSS file
 local_css("styles/styles.css")
 
-# Create a header for the landing page using custom CSS class
+# Create a header for the landing page using a custom CSS class
 st.markdown('<h1 class="custom-title">ScriptaGen is the best way to create documents</h1>', unsafe_allow_html=True)
 
-# Continue with the rest of your Streamlit app
+# Add a centered "Start creating" button with custom styling
+start_button_html = """
+<div style="text-align: center;">
+    <button class="custom-button selected">Start creating</button>
+</div>
+"""
+st.markdown(start_button_html, unsafe_allow_html=True)
+
+# Add a customized horizontal line divider
+st.markdown('<hr class="custom-hr">', unsafe_allow_html=True)
+
+# Description text
 st.markdown("""
 <div class="custom-markdown">
-    **ScriptaGen allows you to effortlessly create professional-looking content, such as resumes, letters, and reports.**  
+    ScriptaGen allows you to effortlessly create professional-looking content, such as resumes, letters, and reports.  
     Simply upload your existing documents, and ScriptaGen's powerful AI will ensure your new documents are polished and presented in the best possible format.
 </div>
 """, unsafe_allow_html=True)
 
-# The rest of your Streamlit code here...
+# Add the vertical steps section
+st.markdown(
+    """
+    <div class="step-container">
+        <div class="step-box">
+            <div class="step-number">01</div>
+            <div class="step-text">Select the document type and format you want.</div>
+        </div>
+        <div class="step-box">
+            <div class="step-number">02</div>
+            <div class="step-text">Upload files containing the information you want to use.</div>
+        </div>
+        <div class="step-box">
+            <div class="step-number">03</div>
+            <div class="step-text">Select "Generate" and download your document!</div>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Initialize session state variables
 if 'document_type' not in st.session_state:
@@ -34,45 +77,43 @@ if 'formatting_option' not in st.session_state:
 if 'generate_clicked' not in st.session_state:
     st.session_state['generate_clicked'] = False
 
-# Add buttons for selecting the type of document
+# Add buttons for selecting the type of document using HTML
 st.markdown("#### Select the type of document you want to work on:")
-col1, col2, col3 = st.columns(3)
 
-with col1:
-    if st.button("Resume"):
-        st.session_state['document_type'] = "Resume"
-        st.session_state['formatting_option'] = None  # Reset formatting option on new selection
+# Use HTML to render buttons
+button_html = """
+<div style="text-align: center;">
+    <button class="custom-button {0}" onclick="window.location.href='?document_type=Resume'">Resume</button>
+    <button class="custom-button {1}" onclick="window.location.href='?document_type=Letter'">Letter</button>
+    <button class="custom-button {2}" onclick="window.location.href='?document_type=Report'">Report</button>
+</div>
+""".format(
+    "selected" if st.session_state['document_type'] == "Resume" else "",
+    "selected" if st.session_state['document_type'] == "Letter" else "",
+    "selected" if st.session_state['document_type'] == "Report" else ""
+)
 
-with col2:
-    if st.button("Letter"):
-        st.session_state['document_type'] = "Letter"
-        st.session_state['formatting_option'] = None  # Reset formatting option on new selection
-
-with col3:
-    if st.button("Report"):
-        st.session_state['document_type'] = "Report"
-        st.session_state['formatting_option'] = None  # Reset formatting option on new selection
+st.markdown(button_html, unsafe_allow_html=True)
 
 # Display formatting options if a document type is selected
 if st.session_state['document_type']:
     st.markdown("#### Select the formatting option:")
-    col4, col5, col6, col7 = st.columns(4)
 
-    with col4:
-        if st.button("Modern"):
-            st.session_state['formatting_option'] = "Modern"
+    format_html = """
+    <div style="text-align: center;">
+        <button class="custom-button {0}" onclick="window.location.href='?formatting_option=Modern'">Modern</button>
+        <button class="custom-button {1}" onclick="window.location.href='?formatting_option=Classic'">Classic</button>
+        <button class="custom-button {2}" onclick="window.location.href='?formatting_option=Dynamic'">Dynamic</button>
+        <button class="custom-button {3}" onclick="window.location.href='?formatting_option=Bold'">Bold</button>
+    </div>
+    """.format(
+        "selected" if st.session_state['formatting_option'] == "Modern" else "",
+        "selected" if st.session_state['formatting_option'] == "Classic" else "",
+        "selected" if st.session_state['formatting_option'] == "Dynamic" else "",
+        "selected" if st.session_state['formatting_option'] == "Bold" else ""
+    )
 
-    with col5:
-        if st.button("Classic"):
-            st.session_state['formatting_option'] = "Classic"
-
-    with col6:
-        if st.button("Dynamic"):
-            st.session_state['formatting_option'] = "Dynamic"
-
-    with col7:
-        if st.button("Bold"):
-            st.session_state['formatting_option'] = "Bold"
+    st.markdown(format_html, unsafe_allow_html=True)
 
 # Show image and file uploader if both document type and formatting option are selected
 if st.session_state['document_type'] and st.session_state['formatting_option']:

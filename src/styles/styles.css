@@ -31,11 +31,20 @@ body {
     color: #d8240c;
     text-align: center;
     font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;  /* Increased bottom margin for spacing */
+}
+
+.custom-hr {
+    border: 0;
+    border-top: 2px solid #d8240c; /* 2 pixels thick, red color */
+    width: 50%;                    /* 50% width */
+    margin: 20px auto;             /* Increase top and bottom margin and center the line */
 }
 
 .custom-markdown {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 20px;
+    margin-top: 20px;  /* Added top margin for spacing */
     font-family: 'Inter', sans-serif;
 }
 
@@ -43,4 +52,57 @@ body {
     font-size: 16px;
     color: #666666;
     font-family: 'Inter', sans-serif;
+}
+
+/* Custom styles for step numbers and text */
+.step-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.step-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;  /* Space between steps */
+}
+
+.step-number {
+    font-size: 48px;
+    color: #d8240c;
+    margin-right: 20px;  /* Space between number and text */
+}
+
+.step-text {
+    font-size: 16px;
+    color: #333333;
+}
+
+/* Custom styles for buttons */
+.custom-button {
+    display: inline-block;
+    width: 150px; /* Fixed width for all buttons */
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ac2707;
+    background-color: #ffffff;
+    border: 1px solid #ac2707;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+.custom-button.selected {
+    color: #ffffff;
+    background-color: #ac2707;
+}
+
+.custom-button:hover {
+    background-color: #ffffff;
+    color: #ac2707;
+    border: 1px solid #ac2707;
+    font-weight: bold;
 }
