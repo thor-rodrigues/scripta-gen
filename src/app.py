@@ -67,6 +67,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Add a customized horizontal line divider
+st.markdown('<hr class="custom-hr">', unsafe_allow_html=True)
+
 # Initialize session state variables
 if 'document_type' not in st.session_state:
     st.session_state['document_type'] = None
@@ -77,43 +80,34 @@ if 'formatting_option' not in st.session_state:
 if 'generate_clicked' not in st.session_state:
     st.session_state['generate_clicked'] = False
 
-# Add buttons for selecting the type of document using HTML
-st.markdown("<h4 style='color: #333333;'>Select the type of document you want to work on:</h4>", unsafe_allow_html=True)
+# Use buttons for selecting the type of document
+st.markdown("<h4 style='color: #ac2707;'>Choose document:</h4>", unsafe_allow_html=True)
 
-# Use HTML to render buttons
-button_html = """
-<div style="text-align: center;">
-    <button class="custom-button {0}" onclick="window.location.href='?document_type=Resume'">Resume</button>
-    <button class="custom-button {1}" onclick="window.location.href='?document_type=Letter'">Letter</button>
-    <button class="custom-button {2}" onclick="window.location.href='?document_type=Report'">Report</button>
-</div>
-""".format(
-    "selected" if st.session_state['document_type'] == "Resume" else "",
-    "selected" if st.session_state['document_type'] == "Letter" else "",
-    "selected" if st.session_state['document_type'] == "Report" else ""
-)
+col1, col2, col3 = st.columns(3)
 
-st.markdown(button_html, unsafe_allow_html=True)
+with col1:
+    if st.button("Resume"):
+        st.session_state['document_type'] = "Resume"
 
-# Display formatting options if a document type is selected
+with col2:
+    if st.button("Letter"):
+        st.session_state['document_type'] = "Letter"
+
+with col3:
+    if st.button("Report"):
+        st.session_state['document_type'] = "Report"
+
+# Display formatting options using radio buttons if a document type is selected
 if st.session_state['document_type']:
-    st.markdown("<h4 style='color: #333333;'>Select the formatting option:</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color: #ac2707;'>Choose formatting:</h4>", unsafe_allow_html=True)
 
-    format_html = """
-    <div style="text-align: center;">
-        <button class="custom-button {0}" onclick="window.location.href='?formatting_option=Modern'">Modern</button>
-        <button class="custom-button {1}" onclick="window.location.href='?formatting_option=Classic'">Classic</button>
-        <button class="custom-button {2}" onclick="window.location.href='?formatting_option=Dynamic'">Dynamic</button>
-        <button class="custom-button {3}" onclick="window.location.href='?formatting_option=Bold'">Bold</button>
-    </div>
-    """.format(
-        "selected" if st.session_state['formatting_option'] == "Modern" else "",
-        "selected" if st.session_state['formatting_option'] == "Classic" else "",
-        "selected" if st.session_state['formatting_option'] == "Dynamic" else "",
-        "selected" if st.session_state['formatting_option'] == "Bold" else ""
+    # Use radio buttons to select the formatting option
+    st.session_state['formatting_option'] = st.radio(
+        "",
+        ["Modern", "Classic", "Dynamic", "Bold"],
+        index=0,  # Default selection can be set here if needed
+        key='formatting_option_radio'
     )
-
-    st.markdown(format_html, unsafe_allow_html=True)
 
 # Show image and file uploader if both document type and formatting option are selected
 if st.session_state['document_type'] and st.session_state['formatting_option']:

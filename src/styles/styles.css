@@ -28,7 +28,7 @@ body {
 /* Additional custom styles for specific elements */
 .custom-title {
     font-size: 48px;
-    color: #d8240c;
+    color: #ac2707;
     text-align: center;
     font-family: 'Inter', sans-serif;
     margin-bottom: 20px;  /* Increased bottom margin for spacing */
@@ -36,9 +36,9 @@ body {
 
 .custom-hr {
     border: 0;
-    border-top: 2px solid #d8240c; /* 2 pixels thick, red color */
+    border-top: 2px solid #ac2707; /* 2 pixels thick, red color */
     width: 50%;                    /* 50% width */
-    margin: 20px auto;             /* Increase top and bottom margin and center the line */
+    margin: 60px auto;             /* Increase top and bottom margin and center the line */
 }
 
 .custom-markdown {
@@ -60,7 +60,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 0;
 }
 
 .step-box {
@@ -71,8 +70,8 @@ body {
 
 .step-number {
     font-size: 48px;
-    color: #d8240c;
-    margin-right: 20px;  /* Space between number and text */
+    color: #ac2707;
+    margin-right: 30px;  /* Space between number and text */
 }
 
 .step-text {
@@ -111,4 +110,19 @@ body {
 /* New rule to set the color of h4 headings to #333333 */
 h4 {
     color: #333333;
+}
+
+/* Custom styles for radio button options */
+.stRadio div {
+    color: #333333;  /* Change text color to #333333 */
+    font-family: 'Inter', sans-serif;  /* Apply the Inter font */
+}
+
+/* Align radio buttons horizontally and justify spacing */
+.stRadio > div {
+    display: flex;
+    flex-direction: row;  /* Align radio buttons horizontally */
+    justify-content: space-between;  /* Justify space between radio buttons */
+    align-items: center;  /* Center vertically */
+    width: 100%;  /* Ensure it uses the full width of the container */
 }
