@@ -1,0 +1,1065 @@
+{
+    "id": "fa890485-0b84-41e0-b319-83878b9bb54e",
+    "data": {
+        "nodes": [
+            {
+                "id": "Directory-iIPoR",
+                "type": "genericNode",
+                "position": {
+                    "x": 327,
+                    "y": 346.72916412353516
+                },
+                "data": {
+                    "type": "Directory",
+                    "node": {
+                        "template": {
+                            "_type": "Component",
+                            "code": {
+                                "type": "code",
+                                "required": true,
+                                "placeholder": "",
+                                "list": false,
+                                "show": true,
+                                "multiline": true,
+                                "value": "from typing import List\n\nfrom langflow.base.data.utils import parallel_load_data, parse_text_file_to_data, retrieve_file_paths\nfrom langflow.custom import Component\nfrom langflow.io import BoolInput, IntInput, MessageTextInput\nfrom langflow.schema import Data\nfrom langflow.template import Output\n\n\nclass DirectoryComponent(Component):\n    display_name = \"Directory\"\n    description = \"Recursively load files from a directory.\"\n    icon = \"folder\"\n    name = \"Directory\"\n\n    inputs = [\n        MessageTextInput(\n            name=\"path\",\n            display_name=\"Path\",\n            info=\"Path to the directory to load files from.\",\n        ),\n        MessageTextInput(\n            name=\"types\",\n            display_name=\"Types\",\n            info=\"File types to load. Leave empty to load all types.\",\n            is_list=True,\n        ),\n        IntInput(\n            name=\"depth\",\n            display_name=\"Depth\",\n            info=\"Depth to search for files.\",\n            value=0,\n        ),\n        IntInput(\n            name=\"max_concurrency\",\n            display_name=\"Max Concurrency\",\n            advanced=True,\n            info=\"Maximum concurrency for loading files.\",\n            value=2,\n        ),\n        BoolInput(\n            name=\"load_hidden\",\n            display_name=\"Load Hidden\",\n            advanced=True,\n            info=\"If true, hidden files will be loaded.\",\n        ),\n        BoolInput(\n            name=\"recursive\",\n            display_name=\"Recursive\",\n            advanced=True,\n            info=\"If true, the search will be recursive.\",\n        ),\n        BoolInput(\n            name=\"silent_errors\",\n            display_name=\"Silent Errors\",\n            advanced=True,\n            info=\"If true, errors will not raise an exception.\",\n        ),\n        BoolInput(\n            name=\"use_multithreading\",\n            display_name=\"Use Multithreading\",\n            advanced=True,\n            info=\"If true, multithreading will be used.\",\n        ),\n    ]\n\n    outputs = [\n        Output(display_name=\"Data\", name=\"data\", method=\"load_directory\"),\n    ]\n\n    def load_directory(self) -> List[Data]:\n        path = self.path\n        types = self.types or []  # self.types is already a list due to is_list=True\n        depth = self.depth\n        max_concurrency = self.max_concurrency\n        load_hidden = self.load_hidden\n        recursive = self.recursive\n        silent_errors = self.silent_errors\n        use_multithreading = self.use_multithreading\n\n        resolved_path = self.resolve_path(path)\n        file_paths = retrieve_file_paths(resolved_path, load_hidden, recursive, depth)\n\n        if types:\n            file_paths = [fp for fp in file_paths if any(fp.endswith(ext) for ext in types)]\n\n        loaded_data = []\n\n        if use_multithreading:\n            loaded_data = parallel_load_data(file_paths, silent_errors, max_concurrency)\n        else:\n            loaded_data = [parse_text_file_to_data(file_path, silent_errors) for file_path in file_paths]\n        loaded_data = list(filter(None, loaded_data))\n        self.status = loaded_data\n        return loaded_data  # type: ignore\n",
+                                "fileTypes": [],
+                                "file_path": "",
+                                "password": false,
+                                "name": "code",
+                                "advanced": true,
+                                "dynamic": true,
+                                "info": "",
+                                "load_from_db": false,
+                                "title_case": false
+                            },
+                            "depth": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "depth",
+                                "value": 0,
+                                "display_name": "Depth",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "Depth to search for files.",
+                                "title_case": false,
+                                "type": "int",
+                                "_input_type": "IntInput"
+                            },
+                            "load_hidden": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "load_hidden",
+                                "value": false,
+                                "display_name": "Load Hidden",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "If true, hidden files will be loaded.",
+                                "title_case": false,
+                                "type": "bool",
+                                "_input_type": "BoolInput"
+                            },
+                            "max_concurrency": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "max_concurrency",
+                                "value": 2,
+                                "display_name": "Max Concurrency",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "Maximum concurrency for loading files.",
+                                "title_case": false,
+                                "type": "int",
+                                "_input_type": "IntInput"
+                            },
+                            "path": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "path",
+                                "value": "",
+                                "display_name": "Path",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Path to the directory to load files from.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "recursive": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "recursive",
+                                "value": false,
+                                "display_name": "Recursive",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "If true, the search will be recursive.",
+                                "title_case": false,
+                                "type": "bool",
+                                "_input_type": "BoolInput"
+                            },
+                            "silent_errors": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "silent_errors",
+                                "value": false,
+                                "display_name": "Silent Errors",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "If true, errors will not raise an exception.",
+                                "title_case": false,
+                                "type": "bool",
+                                "_input_type": "BoolInput"
+                            },
+                            "types": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": true,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "types",
+                                "value": "",
+                                "display_name": "Types",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "File types to load. Leave empty to load all types.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "use_multithreading": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "use_multithreading",
+                                "value": false,
+                                "display_name": "Use Multithreading",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "If true, multithreading will be used.",
+                                "title_case": false,
+                                "type": "bool",
+                                "_input_type": "BoolInput"
+                            }
+                        },
+                        "description": "Recursively load files from a directory.",
+                        "icon": "folder",
+                        "base_classes": [
+                            "Data"
+                        ],
+                        "display_name": "Directory - User Files",
+                        "documentation": "",
+                        "custom_fields": {},
+                        "output_types": [],
+                        "pinned": false,
+                        "conditional_paths": [],
+                        "frozen": false,
+                        "outputs": [
+                            {
+                                "types": [
+                                    "Data"
+                                ],
+                                "selected": "Data",
+                                "name": "data",
+                                "display_name": "Data",
+                                "method": "load_directory",
+                                "value": "__UNDEFINED__",
+                                "cache": true
+                            }
+                        ],
+                        "field_order": [
+                            "path",
+                            "types",
+                            "depth",
+                            "max_concurrency",
+                            "load_hidden",
+                            "recursive",
+                            "silent_errors",
+                            "use_multithreading"
+                        ],
+                        "beta": false,
+                        "edited": false,
+                        "lf_version": "1.0.16"
+                    },
+                    "id": "Directory-iIPoR"
+                },
+                "selected": false,
+                "width": 384,
+                "height": 466,
+                "dragging": false
+            },
+            {
+                "id": "ParseData-TYqqA",
+                "type": "genericNode",
+                "position": {
+                    "x": 782,
+                    "y": 344.72916412353516
+                },
+                "data": {
+                    "type": "ParseData",
+                    "node": {
+                        "template": {
+                            "_type": "Component",
+                            "data": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "trace_as_input": true,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "data",
+                                "value": "",
+                                "display_name": "Data",
+                                "advanced": false,
+                                "input_types": [
+                                    "Data"
+                                ],
+                                "dynamic": false,
+                                "info": "The data to convert to text.",
+                                "title_case": false,
+                                "type": "other",
+                                "_input_type": "DataInput"
+                            },
+                            "code": {
+                                "type": "code",
+                                "required": true,
+                                "placeholder": "",
+                                "list": false,
+                                "show": true,
+                                "multiline": true,
+                                "value": "from langflow.custom import Component\nfrom langflow.helpers.data import data_to_text\nfrom langflow.io import DataInput, MultilineInput, Output, StrInput\nfrom langflow.schema.message import Message\n\n\nclass ParseDataComponent(Component):\n    display_name = \"Parse Data\"\n    description = \"Convert Data into plain text following a specified template.\"\n    icon = \"braces\"\n    name = \"ParseData\"\n\n    inputs = [\n        DataInput(name=\"data\", display_name=\"Data\", info=\"The data to convert to text.\"),\n        MultilineInput(\n            name=\"template\",\n            display_name=\"Template\",\n            info=\"The template to use for formatting the data. It can contain the keys {text}, {data} or any other key in the Data.\",\n            value=\"{text}\",\n        ),\n        StrInput(name=\"sep\", display_name=\"Separator\", advanced=True, value=\"\\n\"),\n    ]\n\n    outputs = [\n        Output(display_name=\"Text\", name=\"text\", method=\"parse_data\"),\n    ]\n\n    def parse_data(self) -> Message:\n        data = self.data if isinstance(self.data, list) else [self.data]\n        template = self.template\n\n        result_string = data_to_text(template, data, sep=self.sep)\n        self.status = result_string\n        return Message(text=result_string)\n",
+                                "fileTypes": [],
+                                "file_path": "",
+                                "password": false,
+                                "name": "code",
+                                "advanced": true,
+                                "dynamic": true,
+                                "info": "",
+                                "load_from_db": false,
+                                "title_case": false
+                            },
+                            "sep": {
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "sep",
+                                "value": "\n",
+                                "display_name": "Separator",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "StrInput"
+                            },
+                            "template": {
+                                "trace_as_input": true,
+                                "multiline": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "template",
+                                "value": "{text}",
+                                "display_name": "Template",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "The template to use for formatting the data. It can contain the keys {text}, {data} or any other key in the Data.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MultilineInput"
+                            }
+                        },
+                        "description": "Convert Data into plain text following a specified template.",
+                        "icon": "braces",
+                        "base_classes": [
+                            "Message"
+                        ],
+                        "display_name": "Parse Data",
+                        "documentation": "",
+                        "custom_fields": {},
+                        "output_types": [],
+                        "pinned": false,
+                        "conditional_paths": [],
+                        "frozen": false,
+                        "outputs": [
+                            {
+                                "types": [
+                                    "Message"
+                                ],
+                                "selected": "Message",
+                                "name": "text",
+                                "display_name": "Text",
+                                "method": "parse_data",
+                                "value": "__UNDEFINED__",
+                                "cache": true
+                            }
+                        ],
+                        "field_order": [
+                            "data",
+                            "template",
+                            "sep"
+                        ],
+                        "beta": false,
+                        "edited": false,
+                        "lf_version": "1.0.16"
+                    },
+                    "id": "ParseData-TYqqA"
+                },
+                "selected": false,
+                "width": 384,
+                "height": 371,
+                "positionAbsolute": {
+                    "x": 782,
+                    "y": 344.72916412353516
+                },
+                "dragging": false
+            },
+            {
+                "id": "Prompt-FTy5t",
+                "type": "genericNode",
+                "position": {
+                    "x": 1252.1390663505424,
+                    "y": 342.53581958901634
+                },
+                "data": {
+                    "type": "Prompt",
+                    "node": {
+                        "template": {
+                            "_type": "Component",
+                            "code": {
+                                "type": "code",
+                                "required": true,
+                                "placeholder": "",
+                                "list": false,
+                                "show": true,
+                                "multiline": true,
+                                "value": "from langflow.base.prompts.api_utils import process_prompt_template\nfrom langflow.custom import Component\nfrom langflow.inputs.inputs import DefaultPromptField\nfrom langflow.io import Output, PromptInput\nfrom langflow.schema.message import Message\nfrom langflow.template.utils import update_template_values\n\n\nclass PromptComponent(Component):\n    display_name: str = \"Prompt\"\n    description: str = \"Create a prompt template with dynamic variables.\"\n    icon = \"prompts\"\n    trace_type = \"prompt\"\n    name = \"Prompt\"\n\n    inputs = [\n        PromptInput(name=\"template\", display_name=\"Template\"),\n    ]\n\n    outputs = [\n        Output(display_name=\"Prompt Message\", name=\"prompt\", method=\"build_prompt\"),\n    ]\n\n    async def build_prompt(\n        self,\n    ) -> Message:\n        prompt = await Message.from_template_and_variables(**self._attributes)\n        self.status = prompt.text\n        return prompt\n\n    def _update_template(self, frontend_node: dict):\n        prompt_template = frontend_node[\"template\"][\"template\"][\"value\"]\n        custom_fields = frontend_node[\"custom_fields\"]\n        frontend_node_template = frontend_node[\"template\"]\n        _ = process_prompt_template(\n            template=prompt_template,\n            name=\"template\",\n            custom_fields=custom_fields,\n            frontend_node_template=frontend_node_template,\n        )\n        return frontend_node\n\n    def post_code_processing(self, new_frontend_node: dict, current_frontend_node: dict):\n        \"\"\"\n        This function is called after the code validation is done.\n        \"\"\"\n        frontend_node = super().post_code_processing(new_frontend_node, current_frontend_node)\n        template = frontend_node[\"template\"][\"template\"][\"value\"]\n        # Kept it duplicated for backwards compatibility\n        _ = process_prompt_template(\n            template=template,\n            name=\"template\",\n            custom_fields=frontend_node[\"custom_fields\"],\n            frontend_node_template=frontend_node[\"template\"],\n        )\n        # Now that template is updated, we need to grab any values that were set in the current_frontend_node\n        # and update the frontend_node with those values\n        update_template_values(new_template=frontend_node, previous_template=current_frontend_node[\"template\"])\n        return frontend_node\n\n    def _get_fallback_input(self, **kwargs):\n        return DefaultPromptField(**kwargs)\n",
+                                "fileTypes": [],
+                                "file_path": "",
+                                "password": false,
+                                "name": "code",
+                                "advanced": true,
+                                "dynamic": true,
+                                "info": "",
+                                "load_from_db": false,
+                                "title_case": false
+                            },
+                            "template": {
+                                "trace_as_input": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "template",
+                                "value": "You are tasked with generating a professional resume in HTML format based on the following documents:\n\n<documents>\n{documents}\n</documents>\n\nYour goal is to create a well-structured resume using only HTML tags, without any CSS styling or unnecessary HTML elements. Follow these instructions carefully:\n\n1. Analyze the provided documents and extract relevant information for a professional resume.\n\n2. Structure the resume with the following sections:\n   - Contact Information\n   - Professional Summary\n   - Work Experience\n   - Education\n   - Skills\n\n3. Format each section using appropriate HTML tags:\n   - Use <h1> for the person's name at the top of the resume\n   - Use <h2> for section headings\n   - Use <p> for paragraphs of text\n   - Use <ul> and <li> for unordered lists (e.g., skills, bullet points in work experience)\n   - Use <strong> for emphasis on important text (e.g., job titles, degree names)\n\n4. For the Contact Information section:\n   - Use <p> tags for each line of contact information\n   - Include name, email, phone number, and location (city, state)\n\n5. For the Professional Summary:\n   - Use a single <p> tag for a brief overview of professional experience and key skills\n\n6. For Work Experience:\n   - Use <h3> for company names\n   - Use <p> for job titles and employment dates\n   - Use <ul> and <li> for job responsibilities and achievements\n\n7. For Education:\n   - Use <h3> for school names\n   - Use <p> for degree information and graduation dates\n\n8. For Skills:\n   - Use a <ul> with <li> tags for each skill\n\n9. Make sure the structure of the report is organized by organizing the content within its appropriate divs <div></div>.\n\n10. Do not include any CSS styling or classes in your HTML tags.\n\n11. Do not include <html>, <head>, <body>, or any other structural HTML tags outside <div>.\n\n12. Use only the information provided in the input documents. Do not add or invent any details not present in the source material.\n\n13. Your output should contain only the HTML-formatted content of the resume, nothing else.\n\nRemember, any text outside of the HTML tags will crash the system, so be extremely careful to include that all elements are within these tags.",
+                                "display_name": "Template",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "title_case": false,
+                                "type": "prompt",
+                                "_input_type": "PromptInput"
+                            },
+                            "documents": {
+                                "field_type": "str",
+                                "required": false,
+                                "placeholder": "",
+                                "list": false,
+                                "show": true,
+                                "multiline": true,
+                                "value": "",
+                                "fileTypes": [],
+                                "file_path": "",
+                                "password": false,
+                                "name": "documents",
+                                "display_name": "documents",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message",
+                                    "Text"
+                                ],
+                                "dynamic": false,
+                                "info": "",
+                                "load_from_db": false,
+                                "title_case": false,
+                                "type": "str"
+                            }
+                        },
+                        "description": "Create a prompt template with dynamic variables.",
+                        "icon": "prompts",
+                        "is_input": null,
+                        "is_output": null,
+                        "is_composition": null,
+                        "base_classes": [
+                            "Message"
+                        ],
+                        "name": "",
+                        "display_name": "Prompt - Resume Editor",
+                        "documentation": "",
+                        "custom_fields": {
+                            "template": [
+                                "documents"
+                            ]
+                        },
+                        "output_types": [],
+                        "full_path": null,
+                        "pinned": false,
+                        "conditional_paths": [],
+                        "frozen": false,
+                        "outputs": [
+                            {
+                                "types": [
+                                    "Message"
+                                ],
+                                "selected": "Message",
+                                "name": "prompt",
+                                "hidden": null,
+                                "display_name": "Prompt Message",
+                                "method": "build_prompt",
+                                "value": "__UNDEFINED__",
+                                "cache": true
+                            }
+                        ],
+                        "field_order": [
+                            "template"
+                        ],
+                        "beta": false,
+                        "error": null,
+                        "edited": false,
+                        "lf_version": "1.0.16"
+                    },
+                    "id": "Prompt-FTy5t"
+                },
+                "selected": false,
+                "width": 384,
+                "height": 409,
+                "positionAbsolute": {
+                    "x": 1252.1390663505424,
+                    "y": 342.53581958901634
+                },
+                "dragging": false
+            },
+            {
+                "id": "ChatOutput-I55Ep",
+                "type": "genericNode",
+                "position": {
+                    "x": 2138.6505780466227,
+                    "y": 336.33505543390044
+                },
+                "data": {
+                    "type": "ChatOutput",
+                    "node": {
+                        "template": {
+                            "_type": "Component",
+                            "code": {
+                                "type": "code",
+                                "required": true,
+                                "placeholder": "",
+                                "list": false,
+                                "show": true,
+                                "multiline": true,
+                                "value": "from langflow.base.io.chat import ChatComponent\nfrom langflow.inputs import BoolInput\nfrom langflow.io import DropdownInput, MessageTextInput, Output\nfrom langflow.memory import store_message\nfrom langflow.schema.message import Message\nfrom langflow.utils.constants import MESSAGE_SENDER_NAME_AI, MESSAGE_SENDER_USER, MESSAGE_SENDER_AI\n\n\nclass ChatOutput(ChatComponent):\n    display_name = \"Chat Output\"\n    description = \"Display a chat message in the Playground.\"\n    icon = \"ChatOutput\"\n    name = \"ChatOutput\"\n\n    inputs = [\n        MessageTextInput(\n            name=\"input_value\",\n            display_name=\"Text\",\n            info=\"Message to be passed as output.\",\n        ),\n        BoolInput(\n            name=\"should_store_message\",\n            display_name=\"Store Messages\",\n            info=\"Store the message in the history.\",\n            value=True,\n            advanced=True,\n        ),\n        DropdownInput(\n            name=\"sender\",\n            display_name=\"Sender Type\",\n            options=[MESSAGE_SENDER_AI, MESSAGE_SENDER_USER],\n            value=MESSAGE_SENDER_AI,\n            advanced=True,\n            info=\"Type of sender.\",\n        ),\n        MessageTextInput(\n            name=\"sender_name\",\n            display_name=\"Sender Name\",\n            info=\"Name of the sender.\",\n            value=MESSAGE_SENDER_NAME_AI,\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"session_id\",\n            display_name=\"Session ID\",\n            info=\"The session ID of the chat. If empty, the current session ID parameter will be used.\",\n            advanced=True,\n        ),\n        MessageTextInput(\n            name=\"data_template\",\n            display_name=\"Data Template\",\n            value=\"{text}\",\n            advanced=True,\n            info=\"Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.\",\n        ),\n    ]\n    outputs = [\n        Output(display_name=\"Message\", name=\"message\", method=\"message_response\"),\n    ]\n\n    def message_response(self) -> Message:\n        message = Message(\n            text=self.input_value,\n            sender=self.sender,\n            sender_name=self.sender_name,\n            session_id=self.session_id,\n        )\n        if (\n            self.session_id\n            and isinstance(message, Message)\n            and isinstance(message.text, str)\n            and self.should_store_message\n        ):\n            store_message(\n                message,\n                flow_id=self.graph.flow_id,\n            )\n            self.message.value = message\n\n        self.status = message\n        return message\n",
+                                "fileTypes": [],
+                                "file_path": "",
+                                "password": false,
+                                "name": "code",
+                                "advanced": true,
+                                "dynamic": true,
+                                "info": "",
+                                "load_from_db": false,
+                                "title_case": false
+                            },
+                            "data_template": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "data_template",
+                                "value": "{text}",
+                                "display_name": "Data Template",
+                                "advanced": true,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "input_value": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "input_value",
+                                "value": "",
+                                "display_name": "Text",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Message to be passed as output.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "sender": {
+                                "trace_as_metadata": true,
+                                "options": [
+                                    "Machine",
+                                    "User"
+                                ],
+                                "combobox": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "sender",
+                                "value": "Machine",
+                                "display_name": "Sender Type",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "Type of sender.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "DropdownInput"
+                            },
+                            "sender_name": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "sender_name",
+                                "value": "AI",
+                                "display_name": "Sender Name",
+                                "advanced": true,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Name of the sender.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "session_id": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "session_id",
+                                "value": "",
+                                "display_name": "Session ID",
+                                "advanced": true,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "The session ID of the chat. If empty, the current session ID parameter will be used.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "should_store_message": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "should_store_message",
+                                "value": true,
+                                "display_name": "Store Messages",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "Store the message in the history.",
+                                "title_case": false,
+                                "type": "bool",
+                                "_input_type": "BoolInput"
+                            }
+                        },
+                        "description": "Display a chat message in the Playground.",
+                        "icon": "ChatOutput",
+                        "base_classes": [
+                            "Message"
+                        ],
+                        "display_name": "Chat Output",
+                        "documentation": "",
+                        "custom_fields": {},
+                        "output_types": [],
+                        "pinned": false,
+                        "conditional_paths": [],
+                        "frozen": false,
+                        "outputs": [
+                            {
+                                "types": [
+                                    "Message"
+                                ],
+                                "selected": "Message",
+                                "name": "message",
+                                "display_name": "Message",
+                                "method": "message_response",
+                                "value": "__UNDEFINED__",
+                                "cache": true
+                            }
+                        ],
+                        "field_order": [
+                            "input_value",
+                            "should_store_message",
+                            "sender",
+                            "sender_name",
+                            "session_id",
+                            "data_template"
+                        ],
+                        "beta": false,
+                        "edited": false,
+                        "lf_version": "1.0.16"
+                    },
+                    "id": "ChatOutput-I55Ep"
+                },
+                "selected": false,
+                "width": 384,
+                "height": 295,
+                "positionAbsolute": {
+                    "x": 2138.6505780466227,
+                    "y": 336.33505543390044
+                },
+                "dragging": false
+            },
+            {
+                "id": "AnthropicModel-3yGtO",
+                "type": "genericNode",
+                "position": {
+                    "x": 1693.3651561523814,
+                    "y": 339.2591534448116
+                },
+                "data": {
+                    "type": "AnthropicModel",
+                    "node": {
+                        "template": {
+                            "_type": "Component",
+                            "anthropic_api_key": {
+                                "load_from_db": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "anthropic_api_key",
+                                "value": "",
+                                "display_name": "Anthropic API Key",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Your Anthropic API key.",
+                                "title_case": false,
+                                "password": true,
+                                "type": "str",
+                                "_input_type": "SecretStrInput"
+                            },
+                            "anthropic_api_url": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "anthropic_api_url",
+                                "value": "",
+                                "display_name": "Anthropic API URL",
+                                "advanced": true,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Endpoint of the Anthropic API. Defaults to 'https://api.anthropic.com' if not specified.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "code": {
+                                "type": "code",
+                                "required": true,
+                                "placeholder": "",
+                                "list": false,
+                                "show": true,
+                                "multiline": true,
+                                "value": "from pydantic.v1 import SecretStr\n\nfrom langflow.base.models.model import LCModelComponent\nfrom langflow.field_typing import LanguageModel\nfrom langflow.io import DropdownInput, FloatInput, IntInput, MessageTextInput, SecretStrInput\n\n\nclass AnthropicModelComponent(LCModelComponent):\n    display_name = \"Anthropic\"\n    description = \"Generate text using Anthropic Chat&Completion LLMs with prefill support.\"\n    icon = \"Anthropic\"\n    name = \"AnthropicModel\"\n\n    inputs = LCModelComponent._base_inputs + [\n        IntInput(\n            name=\"max_tokens\",\n            display_name=\"Max Tokens\",\n            advanced=True,\n            value=4096,\n            info=\"The maximum number of tokens to generate. Set to 0 for unlimited tokens.\",\n        ),\n        DropdownInput(\n            name=\"model\",\n            display_name=\"Model Name\",\n            options=[\n                \"claude-3-5-sonnet-20240620\",\n                \"claude-3-opus-20240229\",\n                \"claude-3-sonnet-20240229\",\n                \"claude-3-haiku-20240307\",\n            ],\n            info=\"https://python.langchain.com/docs/integrations/chat/anthropic\",\n            value=\"claude-3-5-sonnet-20240620\",\n        ),\n        SecretStrInput(\n            name=\"anthropic_api_key\",\n            display_name=\"Anthropic API Key\",\n            info=\"Your Anthropic API key.\",\n        ),\n        FloatInput(name=\"temperature\", display_name=\"Temperature\", value=0.1),\n        MessageTextInput(\n            name=\"anthropic_api_url\",\n            display_name=\"Anthropic API URL\",\n            advanced=True,\n            info=\"Endpoint of the Anthropic API. Defaults to 'https://api.anthropic.com' if not specified.\",\n        ),\n        MessageTextInput(\n            name=\"prefill\",\n            display_name=\"Prefill\",\n            info=\"Prefill text to guide the model's response.\",\n            advanced=True,\n        ),\n    ]\n\n    def build_model(self) -> LanguageModel:  # type: ignore[type-var]\n        try:\n            from langchain_anthropic.chat_models import ChatAnthropic\n        except ImportError:\n            raise ImportError(\n                \"langchain_anthropic is not installed. Please install it with `pip install langchain_anthropic`.\"\n            )\n        model = self.model\n        anthropic_api_key = self.anthropic_api_key\n        max_tokens = self.max_tokens\n        temperature = self.temperature\n        anthropic_api_url = self.anthropic_api_url or \"https://api.anthropic.com\"\n\n        try:\n            output = ChatAnthropic(\n                model=model,\n                anthropic_api_key=(SecretStr(anthropic_api_key) if anthropic_api_key else None),\n                max_tokens_to_sample=max_tokens,  # type: ignore\n                temperature=temperature,\n                anthropic_api_url=anthropic_api_url,\n                streaming=self.stream,\n            )\n        except Exception as e:\n            raise ValueError(\"Could not connect to Anthropic API.\") from e\n\n        return output  # type: ignore\n\n    def _get_exception_message(self, exception: Exception) -> str | None:\n        \"\"\"\n        Get a message from an Anthropic exception.\n\n        Args:\n            exception (Exception): The exception to get the message from.\n\n        Returns:\n            str: The message from the exception.\n        \"\"\"\n        try:\n            from anthropic import BadRequestError\n        except ImportError:\n            return None\n        if isinstance(exception, BadRequestError):\n            message = exception.body.get(\"error\", {}).get(\"message\")  # type: ignore\n            if message:\n                return message\n        return None\n",
+                                "fileTypes": [],
+                                "file_path": "",
+                                "password": false,
+                                "name": "code",
+                                "advanced": true,
+                                "dynamic": true,
+                                "info": "",
+                                "load_from_db": false,
+                                "title_case": false
+                            },
+                            "input_value": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "input_value",
+                                "value": "",
+                                "display_name": "Input",
+                                "advanced": false,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageInput"
+                            },
+                            "max_tokens": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "max_tokens",
+                                "value": 4096,
+                                "display_name": "Max Tokens",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "The maximum number of tokens to generate. Set to 0 for unlimited tokens.",
+                                "title_case": false,
+                                "type": "int",
+                                "_input_type": "IntInput"
+                            },
+                            "model": {
+                                "trace_as_metadata": true,
+                                "options": [
+                                    "claude-3-5-sonnet-20240620",
+                                    "claude-3-opus-20240229",
+                                    "claude-3-sonnet-20240229",
+                                    "claude-3-haiku-20240307"
+                                ],
+                                "combobox": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "model",
+                                "value": "claude-3-5-sonnet-20240620",
+                                "display_name": "Model Name",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "https://python.langchain.com/docs/integrations/chat/anthropic",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "DropdownInput"
+                            },
+                            "prefill": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "prefill",
+                                "value": "",
+                                "display_name": "Prefill",
+                                "advanced": true,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "Prefill text to guide the model's response.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "stream": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "stream",
+                                "value": false,
+                                "display_name": "Stream",
+                                "advanced": true,
+                                "dynamic": false,
+                                "info": "Stream the response from the model. Streaming works only in Chat.",
+                                "title_case": false,
+                                "type": "bool",
+                                "_input_type": "BoolInput"
+                            },
+                            "system_message": {
+                                "trace_as_input": true,
+                                "trace_as_metadata": true,
+                                "load_from_db": false,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "system_message",
+                                "value": "",
+                                "display_name": "System Message",
+                                "advanced": true,
+                                "input_types": [
+                                    "Message"
+                                ],
+                                "dynamic": false,
+                                "info": "System message to pass to the model.",
+                                "title_case": false,
+                                "type": "str",
+                                "_input_type": "MessageTextInput"
+                            },
+                            "temperature": {
+                                "trace_as_metadata": true,
+                                "list": false,
+                                "required": false,
+                                "placeholder": "",
+                                "show": true,
+                                "name": "temperature",
+                                "value": "0",
+                                "display_name": "Temperature",
+                                "advanced": false,
+                                "dynamic": false,
+                                "info": "",
+                                "title_case": false,
+                                "type": "float",
+                                "_input_type": "FloatInput"
+                            }
+                        },
+                        "description": "Generate text using Anthropic Chat&Completion LLMs with prefill support.",
+                        "icon": "Anthropic",
+                        "base_classes": [
+                            "LanguageModel",
+                            "Message"
+                        ],
+                        "display_name": "Anthropic",
+                        "documentation": "",
+                        "custom_fields": {},
+                        "output_types": [],
+                        "pinned": false,
+                        "conditional_paths": [],
+                        "frozen": false,
+                        "outputs": [
+                            {
+                                "types": [
+                                    "Message"
+                                ],
+                                "selected": "Message",
+                                "name": "text_output",
+                                "display_name": "Text",
+                                "method": "text_response",
+                                "value": "__UNDEFINED__",
+                                "cache": true
+                            },
+                            {
+                                "types": [
+                                    "LanguageModel"
+                                ],
+                                "selected": "LanguageModel",
+                                "name": "model_output",
+                                "display_name": "Language Model",
+                                "method": "build_model",
+                                "value": "__UNDEFINED__",
+                                "cache": true
+                            }
+                        ],
+                        "field_order": [
+                            "input_value",
+                            "system_message",
+                            "stream",
+                            "max_tokens",
+                            "model",
+                            "anthropic_api_key",
+                            "temperature",
+                            "anthropic_api_url",
+                            "prefill"
+                        ],
+                        "beta": false,
+                        "edited": false,
+                        "lf_version": "1.0.16"
+                    },
+                    "id": "AnthropicModel-3yGtO"
+                },
+                "selected": false,
+                "width": 384,
+                "height": 709,
+                "positionAbsolute": {
+                    "x": 1693.3651561523814,
+                    "y": 339.2591534448116
+                },
+                "dragging": false
+            }
+        ],
+        "edges": [
+            {
+                "source": "Directory-iIPoR",
+                "sourceHandle": "{œdataTypeœ:œDirectoryœ,œidœ:œDirectory-iIPoRœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}",
+                "target": "ParseData-TYqqA",
+                "targetHandle": "{œfieldNameœ:œdataœ,œidœ:œParseData-TYqqAœ,œinputTypesœ:[œDataœ],œtypeœ:œotherœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "data",
+                        "id": "ParseData-TYqqA",
+                        "inputTypes": [
+                            "Data"
+                        ],
+                        "type": "other"
+                    },
+                    "sourceHandle": {
+                        "dataType": "Directory",
+                        "id": "Directory-iIPoR",
+                        "name": "data",
+                        "output_types": [
+                            "Data"
+                        ]
+                    }
+                },
+                "id": "reactflow__edge-Directory-iIPoR{œdataTypeœ:œDirectoryœ,œidœ:œDirectory-iIPoRœ,œnameœ:œdataœ,œoutput_typesœ:[œDataœ]}-ParseData-TYqqA{œfieldNameœ:œdataœ,œidœ:œParseData-TYqqAœ,œinputTypesœ:[œDataœ],œtypeœ:œotherœ}",
+                "className": ""
+            },
+            {
+                "source": "Prompt-FTy5t",
+                "sourceHandle": "{œdataTypeœ:œPromptœ,œidœ:œPrompt-FTy5tœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
+                "target": "AnthropicModel-3yGtO",
+                "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œAnthropicModel-3yGtOœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "input_value",
+                        "id": "AnthropicModel-3yGtO",
+                        "inputTypes": [
+                            "Message"
+                        ],
+                        "type": "str"
+                    },
+                    "sourceHandle": {
+                        "dataType": "Prompt",
+                        "id": "Prompt-FTy5t",
+                        "name": "prompt",
+                        "output_types": [
+                            "Message"
+                        ]
+                    }
+                },
+                "id": "reactflow__edge-Prompt-FTy5t{œdataTypeœ:œPromptœ,œidœ:œPrompt-FTy5tœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-AnthropicModel-3yGtO{œfieldNameœ:œinput_valueœ,œidœ:œAnthropicModel-3yGtOœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+                "className": ""
+            },
+            {
+                "source": "AnthropicModel-3yGtO",
+                "sourceHandle": "{œdataTypeœ:œAnthropicModelœ,œidœ:œAnthropicModel-3yGtOœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}",
+                "target": "ChatOutput-I55Ep",
+                "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-I55Epœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "input_value",
+                        "id": "ChatOutput-I55Ep",
+                        "inputTypes": [
+                            "Message"
+                        ],
+                        "type": "str"
+                    },
+                    "sourceHandle": {
+                        "dataType": "AnthropicModel",
+                        "id": "AnthropicModel-3yGtO",
+                        "name": "text_output",
+                        "output_types": [
+                            "Message"
+                        ]
+                    }
+                },
+                "id": "reactflow__edge-AnthropicModel-3yGtO{œdataTypeœ:œAnthropicModelœ,œidœ:œAnthropicModel-3yGtOœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-I55Ep{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-I55Epœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+                "className": ""
+            },
+            {
+                "source": "ParseData-TYqqA",
+                "sourceHandle": "{œdataTypeœ:œParseDataœ,œidœ:œParseData-TYqqAœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}",
+                "target": "Prompt-FTy5t",
+                "targetHandle": "{œfieldNameœ:œdocumentsœ,œidœ:œPrompt-FTy5tœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+                "data": {
+                    "targetHandle": {
+                        "fieldName": "documents",
+                        "id": "Prompt-FTy5t",
+                        "inputTypes": [
+                            "Message",
+                            "Text"
+                        ],
+                        "type": "str"
+                    },
+                    "sourceHandle": {
+                        "dataType": "ParseData",
+                        "id": "ParseData-TYqqA",
+                        "name": "text",
+                        "output_types": [
+                            "Message"
+                        ]
+                    }
+                },
+                "id": "reactflow__edge-ParseData-TYqqA{œdataTypeœ:œParseDataœ,œidœ:œParseData-TYqqAœ,œnameœ:œtextœ,œoutput_typesœ:[œMessageœ]}-Prompt-FTy5t{œfieldNameœ:œdocumentsœ,œidœ:œPrompt-FTy5tœ,œinputTypesœ:[œMessageœ,œTextœ],œtypeœ:œstrœ}",
+                "className": ""
+            }
+        ],
+        "viewport": {
+            "x": -305.27452721974805,
+            "y": -313.19349400773945,
+            "zoom": 0.963889089422633
+        }
+    },
+    "description": "",
+    "name": "resume-generator",
+    "last_tested_version": "1.0.16",
+    "endpoint_name": null,
+    "is_component": false
+}
