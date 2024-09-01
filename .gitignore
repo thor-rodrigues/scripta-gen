@@ -1,3 +1,4 @@
 /test
 .secrets
 .env
+.venv
