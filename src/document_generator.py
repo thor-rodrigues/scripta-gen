@@ -21,10 +21,6 @@ answer = "<html><body><h1>Your HTML content here</h1></body></html>"
 html_directory = os.path.join(directory_path, 'src', 'temp', 'html')
 pdf_directory = os.path.join(directory_path, 'src', 'temp', 'pdf')
 
-# Create directories if they don't exist
-os.makedirs(html_directory, exist_ok=True)
-os.makedirs(pdf_directory, exist_ok=True)
-
 # Define file paths
 html_file_path = os.path.join(html_directory, 'output.html')
 pdf_file_path = os.path.join(pdf_directory, 'output.pdf')
