@@ -1,5 +1,3 @@
-/test
-.secrets
 .env
 .venv
 local_cache
