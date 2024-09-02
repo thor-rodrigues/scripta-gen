@@ -1,0 +1,71 @@
+<document>
+UNIVERSITY OF CALIFORNIA, BERKELEY
+OFFICIAL ACADEMIC TRANSCRIPT
+
+Student Name: Amelie Johnson
+Student ID: 87654321
+Date of Birth: 05/12/1994
+Major: Business Administration
+Degree: Bachelor of Science
+
+Academic Record:
+
+Fall 2012
+BUS 101 - Introduction to Business (A)
+ECON 101 - Principles of Microeconomics (A-)
+MATH 104 - Calculus I (B+)
+ENGL 101 - Composition and Rhetoric (A)
+
+Spring 2013
+BUS 110 - Financial Accounting (A)
+ECON 102 - Principles of Macroeconomics (A)
+STAT 101 - Introduction to Statistics (A-)
+COMM 150 - Public Speaking (A)
+
+Fall 2013
+BUS 120 - Organizational Behavior (A)
+BUS 130 - Marketing Principles (A-)
+BUS 140 - Business Analytics (A)
+PSYCH 101 - Introduction to Psychology (B+)
+
+Spring 2014
+BUS 150 - Corporate Finance (A)
+BUS 160 - Operations Management (A-)
+BUS 170 - Business Strategy (A)
+PHIL 105 - Business Ethics (A)
+
+Fall 2014
+BUS 180 - International Business (A)
+BUS 190 - Business Information Systems (A)
+BUS 200 - Entrepreneurship (A-)
+ECON 115 - Game Theory (B+)
+
+Spring 2015
+BUS 210 - Business Law (A)
+BUS 220 - Project Management (A)
+BUS 230 - Business Analytics II (A)
+BUS 240 - Leadership and Management (A-)
+
+Fall 2015
+BUS 250 - Strategic Management (A)
+BUS 260 - Business Consulting (A)
+BUS 270 - Data-Driven Decision Making (A)
+BUS 280 - Business Communication (A)
+
+Spring 2016
+BUS 290 - Capstone Project (A)
+BUS 300 - Business Analytics III (A)
+BUS 310 - Negotiation Skills (A)
+BUS 320 - Innovation Management (A-)
+
+Cumulative GPA: 3.91
+Honors: Summa Cum Laude
+
+Degree Conferred: May 14, 2016
+
+______________________________
+Jane Smith, Ph.D.
+University Registrar
+
+This transcript is not official unless signed by the University Registrar and embossed with the University seal.
+</document>

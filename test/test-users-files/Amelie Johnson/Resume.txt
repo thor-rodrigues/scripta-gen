@@ -1,0 +1,74 @@
+<document>
+Resume
+
+Amelie Johnson
+
+Business Analyst
+
+Email: amelie.johnson@email.com
+
+Phone: (555) 123-4567
+
+Summary:
+
+Dedicated and analytical Business Analyst with 5 years of experience in data-driven decision-making and process improvement. Skilled in translating complex business requirements into actionable insights and solutions.
+
+Professional Experience:
+
+Senior Business Analyst
+
+TechCorp Solutions, New York, NY
+
+June 2020 - Present
+
+• Lead cross-functional teams in identifying and implementing process improvements, resulting in a 15% increase in operational efficiency
+
+• Develop and maintain dashboards using Tableau to visualize key performance indicators for executive leadership
+
+• Conduct stakeholder interviews and facilitate workshops to gather and document business requirements
+
+Business Analyst
+
+DataDrive Consulting, Boston, MA
+
+August 2017 - May 2020
+
+• Performed data analysis and created reports to support strategic decision-making for clients across various industries
+
+• Collaborated with development teams to design and implement new features based on user feedback and market trends
+
+• Assisted in the creation of project proposals and cost-benefit analyses for potential clients
+
+Education:
+
+Bachelor of Science in Business Administration
+
+Concentration in Management Information Systems
+
+University of Massachusetts, Amherst
+
+Graduated: May 2017
+
+Skills:
+
+• Data Analysis: SQL, Excel, Python
+
+• Visualization: Tableau, Power BI
+
+• Project Management: Agile, Scrum
+
+• Business Process Modeling: BPMN, UML
+
+Certifications:
+
+• Certified Business Analysis Professional (CBAP)
+
+• Tableau Desktop Specialist
+
+Professional Associations:
+
+• Member, International Institute of Business Analysis (IIBA)
+
+References available upon request
+
+</document>

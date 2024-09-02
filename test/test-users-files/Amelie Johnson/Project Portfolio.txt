@@ -1,0 +1,59 @@
+<document>
+Project Portfolio: Amelie Johnson, Business Analyst
+
+1. Customer Segmentation Analysis for RetailCo
+   Duration: March 2021 - June 2021
+   Objective: Improve targeted marketing strategies by analyzing customer purchasing patterns
+   Key Achievements:
+   - Conducted in-depth analysis of 500,000+ customer records
+   - Identified 5 distinct customer segments based on purchasing behavior and demographics
+   - Developed personalized marketing recommendations for each segment, resulting in a 15% increase in customer engagement
+
+2. Supply Chain Optimization for ManufactureCorp
+   Duration: August 2021 - December 2021
+   Objective: Streamline inventory management and reduce operational costs
+   Key Achievements:
+   - Analyzed historical data to forecast demand patterns
+   - Implemented a just-in-time inventory system, reducing inventory holding costs by 22%
+   - Developed a dashboard for real-time monitoring of supply chain metrics
+
+3. Digital Transformation Initiative for FinanceFirst
+   Duration: February 2022 - July 2022
+   Objective: Modernize legacy systems and improve operational efficiency
+   Key Achievements:
+   - Conducted a comprehensive analysis of existing processes and systems
+   - Identified key areas for automation and digitization
+   - Collaborated with IT team to implement new CRM and ERP systems, resulting in a 30% reduction in processing times
+
+4. Data Governance Framework for HealthCare Inc.
+   Duration: September 2022 - January 2023
+   Objective: Establish data management best practices and ensure regulatory compliance
+   Key Achievements:
+   - Developed a comprehensive data governance framework
+   - Created data quality metrics and monitoring processes
+   - Trained staff on new data management procedures, improving data accuracy by 40%
+
+5. Market Entry Strategy for TechStartup
+   Duration: March 2023 - Present
+   Objective: Analyze market opportunities and develop entry strategy for a new SaaS product
+   Key Achievements (ongoing):
+   - Conducting competitive analysis and market research
+   - Developing financial models to forecast potential ROI
+   - Creating a go-to-market strategy with targeted customer acquisition plans
+
+Skills Demonstrated:
+- Data Analysis and Visualization
+- Project Management
+- Process Improvement
+- Stakeholder Communication
+- Financial Modeling
+- Market Research
+- Strategic Planning
+
+Tools and Technologies:
+- SQL, Python, R
+- Tableau, Power BI
+- Excel, Google Sheets
+- JIRA, Trello
+- Salesforce, SAP
+</document>

@@ -1,0 +1,44 @@
+<document>
+<header>
+Professional Certification
+</header>
+
+<certification_body>
+Project Management Institute (PMI)
+</certification_body>
+
+<certification_name>
+Certified Business Analysis Professional (CBAP)
+</certification_name>
+
+<recipient>
+Amelie Johnson
+</recipient>
+
+<date_issued>
+September 15, 2022
+</date_issued>
+
+<certification_details>
+This is to certify that Amelie Johnson has successfully completed all requirements and demonstrated proficiency in the field of Business Analysis, as outlined by the International Institute of Business Analysis (IIBA). This certification validates expertise in:
+
+- Business Analysis Planning and Monitoring
+- Elicitation and Collaboration
+- Requirements Life Cycle Management
+- Strategy Analysis
+- Requirements Analysis and Design Definition
+- Solution Evaluation
+
+Certification Number: CBAP-2022-09-15-AJ
+Valid for: 3 years from date of issue
+</certification_details>
+
+<additional_information>
+Amelie Johnson has demonstrated a commitment to professional development and excellence in the field of Business Analysis. This certification represents a significant milestone in her career and affirms her ability to effectively apply business analysis principles in various organizational contexts.
+</additional_information>
+
+<signature>
+David Thompson
+President, Project Management Institute
+</signature>
+</document>

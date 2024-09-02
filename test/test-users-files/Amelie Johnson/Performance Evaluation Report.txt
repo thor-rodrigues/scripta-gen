@@ -1,0 +1,42 @@
+<document>
+Performance Evaluation Report
+
+Employee Name: Amelie Johnson
+Position: Junior Business Analyst
+Department: Business Intelligence
+Evaluation Period: January 1, 2023 - June 30, 2023
+Evaluator: Sarah Thompson, Senior Business Analyst
+
+Overall Performance Rating: Meets Expectations
+
+Strengths:
+- Demonstrates strong analytical skills in data interpretation
+- Quick learner, adapting well to new tools and methodologies
+- Collaborates effectively with cross-functional teams
+
+Areas for Improvement:
+- Time management skills need refinement
+- Could benefit from enhancing presentation skills
+- Needs to develop more confidence in sharing ideas during meetings
+
+Goals for Next Period:
+1. Complete advanced Excel course to improve data manipulation skills
+2. Take on a leadership role in at least one project
+3. Attend a public speaking workshop to enhance presentation abilities
+
+Comments:
+Amelie has shown promising potential in her role as a Junior Business Analyst. Her analytical skills are commendable, and she has quickly grasped the fundamentals of our business intelligence tools. Amelie works well with team members and has contributed valuable insights to several projects.
+
+However, there is room for improvement in time management. Amelie occasionally struggles to meet deadlines, particularly when juggling multiple tasks. Additionally, while her analysis is often spot-on, she could benefit from improving her ability to present findings confidently and clearly to stakeholders.
+
+Overall, Amelie is a valuable team member with a bright future in business analysis. With focused effort on the identified areas for improvement, she has the potential to advance quickly in her career.
+
+Next Steps:
+- Schedule monthly check-ins to review progress on goals
+- Assign Amelie a mentor to help develop her professional skills
+- Provide opportunities for Amelie to lead smaller projects to build confidence
+
+Employee Signature: ________________________ Date: ________________
+
+Evaluator Signature: ________________________ Date: ________________
+</document>

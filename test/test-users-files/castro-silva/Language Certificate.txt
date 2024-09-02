@@ -1,0 +1,49 @@
+<certificate_title>Certificate of French Language Proficiency</certificate_title>
+
+<institution>Alliance Française</institution>
+
+<certificate_type>DELF B2</certificate_type>
+
+<recipient>Castro Silva</recipient>
+
+<date_of_issue>15 June 2022</date_of_issue>
+
+<certificate_body>
+
+This is to certify that
+
+Castro Silva
+
+has successfully completed the Diplôme d'Études en Langue Française (DELF) B2 level examination, demonstrating proficiency in the French language according to the Common European Framework of Reference for Languages (CEFR).
+
+The candidate has demonstrated the following competencies:
+
+Can understand the main ideas of complex text on both concrete and abstract topics, including technical discussions in their field of specialization.
+
+Can interact with a degree of fluency and spontaneity that makes regular interaction with native speakers quite possible without strain for either party.
+
+Can produce clear, detailed text on a wide range of subjects and explain a viewpoint on a topical issue giving the advantages and disadvantages of various options.
+
+This certificate is valid for life and is recognized by the French Ministry of Education.
+
+</certificate_body>
+
+<signature>
+Dr. Marie Dubois
+
+Director, Alliance Française
+
+</signature>
+<official_stamp>
+
+[Official Stamp of Alliance Française]
+
+</official_stamp>
+
+<additional_info>
+
+Certificate Number: FR-B2-2022-CS-0789
+
+Examination Date: 1-3 June 2022
+
+Overall Score: 76/100
