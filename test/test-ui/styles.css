@@ -71,6 +71,42 @@ body {
     margin: 50px auto 0; /* Increase margin to add space above the subheading */
 }
 
+/* Instructions section styling */
+.instructions-section {
+    background-color: #14453d; /* Dark green background color */
+    color: white; /* Set text color to white */
+    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    width: 100%; /* Full width of the page */
+    padding: 30px 0; /* Add padding for spacing */
+    text-align: center; /* Center align the text */
+}
+
+.instructions-container {
+    max-width: 1000px; /* Limit width to align with main content */
+    margin: 0 auto; /* Center the content within the section */
+    padding: 0 20px; /* Padding for responsive design */
+}
+
+.instruction-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space between steps */
+}
+
+.step-number {
+    font-size: 3rem; /* Larger font size for numbers */
+    font-family: 'Instrument Serif', serif; /* Change font to Instrument Serif */
+    font-weight: bold; /* Bold font for emphasis */
+    margin-right: 15px; /* Space between number and text */
+    color: white; /* Set number color to white */
+}
+
+.step-text {
+    font-size: 1.5rem; /* Larger font size for readability */
+    color: white; /* Set text color to white */
+    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+}
+
 /* Container for the main content */
 .container {
     width: 100%;
