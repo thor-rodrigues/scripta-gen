@@ -18,7 +18,7 @@ body {
     color: #14453d; /* Set font color to dark green */
     font-family: 'Albert Sans', sans-serif; /* Consistent font with landing page */
     padding: 10px 20px;
-    margin: 0 auto 40px; /* Center align and add margin below for spacing */
+    margin: 0 auto 60px; /* Center align and add margin below for spacing */
 }
 
 /* Brand styling */
@@ -45,7 +45,7 @@ body {
 /* Landing page styling */
 .landing-page {
     text-align: center;
-    padding: 80px 20px; /* Increased padding to create more space above */
+    padding: 100px 20px; /* Increased padding to create more space above */
     background-color: #eae8db; /* Consistent background */
     width: 100%;
     max-width: 1000px; /* Updated max-width for the landing page text */
@@ -57,8 +57,8 @@ body {
     font-size: 3.5rem; /* Increased font size for main heading */
     color: #14453d; /* Set font color to dark green */
     font-weight: 400; /* Set font weight to 400 */
-    letter-spacing: -0.5px; /* Reduce space between letters */
-    margin-bottom: 40px; /* Increased space below the main heading */
+    letter-spacing: -2px; /* Further reduce space between letters */
+    margin-bottom: 50px; /* Increased space below the main heading */
     text-transform: uppercase; /* Make text uppercase */
 }
 
@@ -68,29 +68,56 @@ body {
     color: #14453d; /* Set font color to dark green */
     font-weight: 500; /* Set font weight to 500 */
     max-width: 800px;
-    margin: 40px auto 0; /* Increase margin to add space above the subheading */
+    margin: 50px auto 0; /* Increase margin to add space above the subheading */
 }
 
 /* Container for the main content */
 .container {
     width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
+    max-width: 1000px; /* Match the width with the landing page */
+    padding: 30px;
+    background-color: #ecece7; /* New background color */
+    color: #14453d; /* Consistent font color */
+    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; /* Add some margin to center and space from other elements */
+    margin: 50px auto; /* Add spacing above and below to match document style */
+}
+
+/* Style for the main content heading */
+.container h2 {
+    font-family: 'Instrument Serif', serif; /* Match font with main heading */
+    color: #14453d; /* Consistent color */
+    font-weight: 400; /* Match weight with main heading */
+    letter-spacing: -2px; /* Match letter spacing with main heading */
+    text-transform: uppercase; /* Match text transformation */
+    margin-bottom: 30px; /* Consistent spacing */
 }
 
 /* Style for the option buttons */
 .option-buttons .btn {
     margin-right: 10px;
     margin-bottom: 10px;
+    font-family: 'Albert Sans', sans-serif; /* Consistent font */
+    font-size: 1.1rem; /* Larger font size for buttons */
+    border-radius: 25px; /* Increased border-radius for more rounded buttons */
+    border: 2px solid #14453d; /* Set border color */
+    color: #14453d; /* Set text color to match theme */
+    background-color: transparent; /* Default transparent background */
 }
 
+/* Active button styling */
 .option-buttons .btn.active {
-    background-color: #007bff;
-    color: white;
+    background-color: #14453d; /* Set active background color */
+    color: white; /* Set active text color to white */
+    border: 2px solid #14453d; /* Keep border consistent with background */
+}
+
+/* Hover effect for option buttons */
+.option-buttons .btn:hover {
+    background-color: #14453d; /* Set hover background color to green */
+    color: white; /* Set hover text color to white */
+    border: 2px solid #14453d; /* Maintain border color on hover */
 }
 
 /* Style for the file drop area */
@@ -101,6 +128,7 @@ body {
     text-align: center;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 .file-drop-area:hover {
@@ -112,5 +140,5 @@ body {
 .btn-success {
     display: block;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
 }
