@@ -2,7 +2,7 @@ from langflow.load import run_flow_from_json
 from weasyprint import HTML, CSS
 import os
 
-# Ask the user to enter the directory path
+# Ask the user to enter the directory path (this will not be used for saving files)
 directory_path = input("Please enter the directory path: ")
 
 # Define the tweaks dictionary with the user-provided directory path
@@ -12,14 +12,22 @@ TWEAKS = {
     },
     "AnthropicModel-3yGtO": {
         "anthropic_api_key": "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",
-}}
+    }
+}
 
-# Assuming 'answer' contains the HTML content you want to save
-answer = "<html><body><h1>Your HTML content here</h1></body></html>"
+result = run_flow_from_json(flow="src/resume-generator.json",
+                            input_value="message",
+                            fallback_to_env_vars=True,  # False by default
+                            tweaks=TWEAKS)
 
-# Define paths for saving files
-html_directory = os.path.join(directory_path, 'src', 'temp', 'html')
-pdf_directory = os.path.join(directory_path, 'src', 'temp', 'pdf')
+answer = result[0].outputs[0].results["message"].text
+
+# Define project root directory (assuming this script is run from the project root)
+project_root = os.path.dirname(os.path.abspath(__file__))
+
+# Define paths for saving files within the project directory
+html_directory = os.path.join(project_root, 'temp', 'html')
+pdf_directory = os.path.join(project_root, 'temp', 'pdf')
 
 # Define file paths
 html_file_path = os.path.join(html_directory, 'output.html')
