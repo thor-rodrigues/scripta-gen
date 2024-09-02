@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScriptaGen - File Revision Platform</title>
+    
+    <!-- Link to external CSS for Bootstrap and custom styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
+
+    <!-- FilePond CSS for file upload functionality -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/FilePond/4.28.2/filepond.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">ScriptaGen</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Landing Page Content -->
+    <div class="landing-page">
+        <h1>Never waste another second creating stunning documents</h1>
+        <p>Writing and rewriting content is tough, making it look professional is even tougher. With ScriptaGen, beautiful, professional-looking documents are just a <em>click away</em></p>
+    </div>
+
+    <!-- Main Content Area for File Upload and Options -->
+    <div class="container mt-5">
+        <h2>Upload Your File</h2>
+        
+        <!-- Option Buttons -->
+        <div class="option-buttons mt-3">
+            <button type="button" class="btn btn-outline-primary">Option 1</button>
+            <button type="button" class="btn btn-outline-primary">Option 2</button>
+            <button type="button" class="btn btn-outline-primary">Option 3</button>
+        </div>
+
+        <!-- File Drop Area -->
+        <div class="file-drop-area mt-4">
+            <input type="file" class="file-input" multiple>
+            <p>Drag and drop files here, or click to select files.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <button type="button" class="btn btn-primary mt-4">Generate Revised File</button>
+        <button type="button" class="btn btn-success mt-2">Download Revised File</button>
+    </div>
+
+    <!-- Include JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FilePond/4.28.2/filepond.min.js"></script>
+
+    <script>
+        // Initialize FilePond
+        const inputElement = document.querySelector('.file-input');
+        const pond = FilePond.create(inputElement);
+
+        // Button selection logic
+        $('.option-buttons .btn').on('click', function() {
+            $('.option-buttons .btn').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Placeholder for handling file upload and processing
+        // Add server-side handling here as necessary
+    </script>
+</body>
+</html>
