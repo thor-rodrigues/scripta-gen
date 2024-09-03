@@ -67,17 +67,21 @@ body {
 }
 
 /* Styling for EB Garamond italicized words */
-.landing-page h1 .stunning {
+.landing-page h1 .stunning,
+.landing-page p .eb-garamond,
+.instructions-section .eb-garamond {
     font-family: 'EB Garamond', serif; /* Apply EB Garamond font */
     font-style: italic; /* Italicize the font */
-    font-size: 4.5rem; /* Match size with other heading words */
     text-transform: lowercase; /* Ensure lowercase styling */
 }
 
+.landing-page h1 .stunning {
+    font-size: 4.5rem; /* Match size with other heading words */
+}
+
 .landing-page p .eb-garamond {
-    font-family: 'EB Garamond', serif; /* Apply EB Garamond font */
-    font-style: italic; /* Italicize the font */
-    font-size: 2.5rem; /* Increase size for emphasis */
+    font-size: 2rem; /* Increase size for emphasis */
+    font-weight: 600;
 }
 
 .landing-page p {
@@ -124,13 +128,32 @@ body {
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
     width: 100%; /* Full width of the page */
     padding: 60px 0; /* Increased padding for more height */
-    text-align: center; /* Center align the text */
+    text-align: left; /* Align text to the left */
 }
 
 .instructions-container {
     max-width: 1000px; /* Limit width to align with main content */
     margin: 0 auto; /* Center the content within the section */
     padding: 0 20px; /* Padding for responsive design */
+}
+
+.instructions-section h2 {
+    font-family: 'Instrument Serif', serif; /* Match font with main heading */
+    color: white; /* White color for headings in dark background */
+    font-weight: 400; /* Match weight with main heading */
+    letter-spacing: -2px; /* Match letter spacing with main heading */
+    text-transform: uppercase; /* Match text transformation */
+    margin-bottom: 30px; /* Consistent spacing */
+    font-size: 2.5rem; /* Increased font size for h2 elements */
+    text-align: left; /* Align h2 elements to the left */
+}
+
+.instructions-section p {
+    font-size: 1.6rem; /* Increased font size for readability */
+    text-align: left; /* Align text to the left for better readability */
+    color: white; /* Set text color to white */
+    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    margin-bottom: 150px; /* Increased space below paragraphs */
 }
 
 .instruction-step {
@@ -173,6 +196,8 @@ body {
     letter-spacing: -2px; /* Match letter spacing with main heading */
     text-transform: uppercase; /* Match text transformation */
     margin-bottom: 30px; /* Consistent spacing */
+    font-size: 2.5rem; /* Increase font size for h2 elements */
+    text-align: left; /* Align h2 elements to the left */
 }
 
 /* Style for the option buttons */
