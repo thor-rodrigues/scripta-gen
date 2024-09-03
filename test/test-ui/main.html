@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
 
+    <!-- Google Fonts: EB Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+
     <!-- FilePond CSS for file upload functionality -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/FilePond/4.28.2/filepond.min.css" rel="stylesheet">
 </head>
@@ -18,9 +21,7 @@
         <a class="navbar-brand" href="#">ScriptaGen</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
             </ul>
         </div>
@@ -28,8 +29,13 @@
 
     <!-- Landing Page Content -->
     <div class="landing-page">
-        <h1>Never waste another second creating stunning documents</h1>
-        <p>Writing and rewriting content is tough, making it look professional is even tougher. With ScriptaGen, beautiful, professional-looking documents are just a <em>click away</em>.</p>
+        <h1>Never waste another second creating <span class="stunning">stunning</span> documents</h1>
+        <p>Writing and rewriting content is tough, making it look professional is even tougher. With ScriptaGen, <span class="eb-garamond">beautiful</span>, <span class="eb-garamond">professional-looking</span> documents are just a click away</p>
+        
+        <!-- Start Now Button -->
+        <div class="start-button-container">
+            <button class="btn btn-primary start-now">Start Now</button>
+        </div>
     </div>
 
     <!-- New Instruction Section -->
@@ -37,14 +43,18 @@
         <div class="instructions-container">
             <div class="instruction-step">
                 <span class="step-number">01</span>
-                <span class="step-text">Select the document type and format you want.</span>
+                <span class="step-text">Select the document that you want to create. It can be a resume, a report, a spreadsheet table, meeting notes, and even a brand design guideline!</span>
             </div>
             <div class="instruction-step">
                 <span class="step-number">02</span>
-                <span class="step-text">Upload files containing the information you want to use.</span>
+                <span class="step-text">Choose your favorite format among the multiple desings availables</span>
             </div>
             <div class="instruction-step">
                 <span class="step-number">03</span>
+                <span class="step-text">Upload files containing the information you want to use. We support text files and documents, spreadsheet data, images, and even audio files!</span>
+            </div>
+            <div class="instruction-step">
+                <span class="step-number">04</span>
                 <span class="step-text">Select "Generate" and download your document!</span>
             </div>
         </div>
