@@ -149,6 +149,7 @@ body {
 
 .step-text {
     font-size: 1.6rem; /* Increased font size for readability */
+    text-align: left;
     color: white; /* Set text color to white */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
 }
