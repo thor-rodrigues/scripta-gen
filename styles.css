@@ -79,10 +79,6 @@ body {
     font-size: 4.5rem; /* Match size with other heading words */
 }
 
-.landing-page p .eb-garamond {
-    font-size: 2rem; /* Increase size for emphasis */
-    font-weight: 600;
-}
 
 .landing-page p {
     font-family: 'Bitter', serif; /* Font for the subheading */
@@ -127,7 +123,7 @@ body {
     color: white; /* Set text color to white */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
     width: 100%; /* Full width of the page */
-    padding: 60px 0; /* Increased padding for more height */
+    padding: 70px 0; /* Increased padding for more height */
     text-align: left; /* Align text to the left */
 }
 
@@ -153,7 +149,6 @@ body {
     text-align: left; /* Align text to the left for better readability */
     color: white; /* Set text color to white */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
-    margin-bottom: 150px; /* Increased space below paragraphs */
 }
 
 .instruction-step {
