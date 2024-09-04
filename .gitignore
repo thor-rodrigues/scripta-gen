@@ -2,3 +2,6 @@
 .venv
 local_cache
 logs
+config
+outputs
+temp
