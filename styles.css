@@ -50,7 +50,7 @@ body {
     width: 100%;
     max-width: 1000px; /* Updated max-width for the landing page text */
     margin: 0 auto; /* Center align within the container */
-    height: 60vh; /* Set the height to 60% of the viewport height */
+    min-height: 60vh; /* Set the height to 60% of the viewport height */
     display: flex; /* Use flex to align items vertically */
     flex-direction: column;
     justify-content: center; /* Center content vertically */
