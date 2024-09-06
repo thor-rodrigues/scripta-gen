@@ -199,6 +199,7 @@ body {
 .option-buttons .btn {
     margin-right: 10px;
     margin-bottom: 10px;
+    padding: 5px 30px;
     font-family: 'Albert Sans', sans-serif; /* Consistent font */
     font-size: 1.1rem; /* Larger font size for buttons */
     border-radius: 25px; /* Increased border-radius for more rounded buttons */
@@ -242,4 +243,22 @@ body {
     display: block;
     width: 100%;
     margin-top: 20px;
+}
+
+/* Generate and Download buttons styled like option buttons but keep their width */
+.generate-btn, .download-btn {
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    border: 2px solid #14453d;
+    color: #14453d;
+    background-color: transparent;
+    margin-top: 20px;
+    width: 100%; /* Keep full width for the action buttons */
+}
+
+.generate-btn:hover, .download-btn:hover {
+    background-color: #14453d;
+    color: white;
+    border: 2px solid #14453d;
 }
