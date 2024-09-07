@@ -8,28 +8,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Custom styles for the navigation bar */
 .navbar {
-    width: 100%; /* Make navbar span the entire width of the page */
-    max-width: 1400px; /* Added max-width constraint */
-    background-color: #eae8db; /* Set background color to match landing page */
-    color: #14453d; /* Set font color to dark green */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font with landing page */
+    display: flex; /* Flexbox to align elements horizontally */
+    justify-content: space-between; /* Space between the brand and the nav items */
+    align-items: center; /* Vertically align items */
+    width: 100%; /* Make navbar span the entire width */
+    max-width: 1400px; /* Add max-width constraint */
+    background-color: #eae8db; /* Background color */
     padding: 10px 20px;
-    margin: 0 auto 60px; /* Center align and add margin below for spacing */
+    margin: 0 auto 60px; /* Center align */
 }
 
 /* Brand styling */
 .navbar-brand {
     font-weight: bold; /* Make the brand name bold */
     color: #14453d; /* Set font color to dark green */
-    font-size: 1.5rem; /* Increase font size for brand */
+    font-size: 20pt; /* Increase font size for brand */
 }
 
 /* Navigation links styling */
 .navbar-nav {
+    display: flex; /* Flexbox for horizontal alignment */
+    gap: 50px; /* Add space between navigation links */
     margin-left: auto; /* Push the nav items to the right */
 }
 
@@ -62,7 +66,7 @@ body {
     color: #14453d; /* Set font color to dark green */
     font-weight: 400; /* Set font weight to 400 */
     letter-spacing: -2px; /* Further reduce space between letters */
-    margin-bottom: 50px; /* Increased space below the main heading */
+    margin-bottom: 20px; /* Increased space below the main heading */
     text-transform: uppercase; /* Make text uppercase */
 }
 
@@ -78,7 +82,6 @@ body {
 .landing-page h1 .stunning {
     font-size: 4.5rem; /* Match size with other heading words */
 }
-
 
 .landing-page p {
     font-family: 'Bitter', serif; /* Font for the subheading */
@@ -104,7 +107,7 @@ body {
     max-width: 200px; /* Set a maximum width */
     border-radius: 25px; /* Rounded corners */
     border: 2px solid #14453d; /* Match border color */
-    color: white; /* Text color set to white by default */
+    color: #eae8db; /* Text color set to white by default */
     background-color: #14453d; /* Dark green background by default */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
     width: auto; /* Allow button width to adjust to content */
@@ -120,22 +123,22 @@ body {
 /* Instructions section styling */
 .instructions-section {
     background-color: #14453d; /* Dark green background color */
-    color: white; /* Set text color to white */
+    color: #eae8db; /* Set text */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
     width: 100%; /* Full width of the page */
-    padding: 70px 0; /* Increased padding for more height */
+    padding: 80px 0; /* Increased padding for more height */
     text-align: left; /* Align text to the left */
 }
 
 .instructions-container {
     max-width: 1000px; /* Limit width to align with main content */
     margin: 0 auto; /* Center the content within the section */
-    padding: 0 20px; /* Padding for responsive design */
+    padding: 0 0; /* Padding for responsive design */
 }
 
 .instructions-section h2 {
     font-family: 'Instrument Serif', serif; /* Match font with main heading */
-    color: white; /* White color for headings in dark background */
+    color: #eae8db; /* txt color */
     font-weight: 400; /* Match weight with main heading */
     letter-spacing: -2px; /* Match letter spacing with main heading */
     text-transform: uppercase; /* Match text transformation */
@@ -147,7 +150,7 @@ body {
 .instructions-section p {
     font-size: 1.6rem; /* Increased font size for readability */
     text-align: left; /* Align text to the left for better readability */
-    color: white; /* Set text color to white */
+    color: #eae8db; /* Set text color to white */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
 }
 
@@ -162,13 +165,13 @@ body {
     font-family: 'Instrument Serif', serif; /* Change font to Instrument Serif */
     font-weight: bold; /* Bold font for emphasis */
     margin-right: 70px; /* Further increased space between number and text */
-    color: white; /* Set number color to white */
+    color: #eae8db; /* Set number color to white */
 }
 
 .step-text {
     font-size: 1.6rem; /* Increased font size for readability */
     text-align: left;
-    color: white; /* Set text color to white */
+    color: #eae8db; /* Set text color to white */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
 }
 
