@@ -210,7 +210,7 @@ body {
 
 /* Active button styling */
 .option-buttons .btn.active {
-    background-color: #14453d; /* Set active background color */
+    background-color: #14453d; /* Set active background color to the same green */
     color: white; /* Set active text color to white */
     border: 2px solid #14453d; /* Keep border consistent with background */
 }
@@ -222,32 +222,15 @@ body {
     border: 2px solid #14453d; /* Maintain border color on hover */
 }
 
-/* Style for the file drop area */
-.file-drop-area {
-    border: 2px dashed #ddd;
-    background-color: #ecece7;
-    padding: 30px;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    min-height: 250px; /* Increased height */
-    display: flex; /* Flexbox for centering content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-direction: column; /* Stack text in a column */
+/* Focus and click effect (remove the blue glow and use green) */
+.option-buttons .btn:focus {
+    outline: none; /* Remove the default blue outline */
 }
 
-.file-drop-area:hover {
-    background-color: #f1f1f1;
-}
-
-/* Margin for action buttons */
-.btn-primary,
-.btn-success {
-    display: block;
-    width: 100%;
-    margin-top: 20px;
+.option-buttons .btn:active {
+    background-color: #14453d; /* Keep the same active background color */
+    color: white; /* Active state color stays white */
+    border: 2px solid #14453d; /* Keep border color green */
 }
 
 /* Generate and Download buttons styled like option buttons but keep their width */
@@ -255,6 +238,7 @@ body {
     font-family: 'Albert Sans', sans-serif;
     font-size: 1.1rem;
     border-radius: 25px;
+    padding: 8px 16px; /* Padding similar to Start Now */
     border: 2px solid #14453d;
     color: #14453d;
     background-color: transparent;
@@ -269,7 +253,6 @@ body {
     border: 2px solid #14453d;
 }
 
-/* Download Revised File button styling (now same as Start Now) */
 .download-btn {
     font-family: 'Albert Sans', sans-serif; /* Consistent font */
     font-size: 1.1rem; /* Larger font size for the button */

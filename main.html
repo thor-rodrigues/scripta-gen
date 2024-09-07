@@ -6,11 +6,7 @@
     <title>ScriptaGen - File Revision Platform</title>
     
     <!-- Link to external CSS for Bootstrap and custom styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
-
-    <!-- FilePond CSS for file upload functionality -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/FilePond/4.28.2/filepond.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -70,21 +66,15 @@
         </div>
     </div>
 
-    <!-- Main Content Area for File Upload and Options -->
+    <!-- Main Content Area for Options -->
     <div class="container">
-        <h2 class="container-heading">Upload Your File</h2> <!-- Added class for consistency -->
+        <h2 class="container-heading">Choose Your Document Type</h2> <!-- Heading for document type selection -->
         
-        <!-- Option Buttons -->
+        <!-- Option Buttons for Document Type -->
         <div class="option-buttons">
             <button type="button" class="btn btn-outline-primary">Resume</button>
             <button type="button" class="btn btn-outline-primary">Letter</button>
             <button type="button" class="btn btn-outline-primary">Report</button>
-        </div>
-
-        <!-- File Drop Area -->
-        <div class="file-drop-area">
-            <input type="file" class="file-input" multiple>
-            <p>Drag and drop files here, or click to select files.</p>
         </div>
 
         <!-- Action Buttons -->
@@ -94,22 +84,6 @@
 
     <!-- Include JS Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FilePond/4.28.2/filepond.min.js"></script>
-
-    <script>
-        // Initialize FilePond
-        const inputElement = document.querySelector('.file-input');
-        const pond = FilePond.create(inputElement);
-
-        // Button selection logic
-        $('.option-buttons .btn').on('click', function() {
-            $('.option-buttons .btn').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        // Placeholder for handling file upload and processing
-        // Add server-side handling here as necessary
-    </script>
 
     <!-- Link to the new JavaScript file -->
     <script src="scripts.js"></script> <!-- Include this for the dynamic section creation -->
