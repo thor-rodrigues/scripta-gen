@@ -8,44 +8,53 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Custom styles for the navigation bar */
 .navbar {
-    width: 100%; /* Make navbar span the entire width of the page */
-    max-width: 1400px; /* Added max-width constraint */
-    background-color: #eae8db; /* Set background color to match landing page */
-    color: #14453d; /* Set font color to dark green */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font with landing page */
-    padding: 10px 20px;
-    margin: 0 auto 60px; /* Center align and add margin below for spacing */
+    display: flex; /* Flexbox to align elements horizontally */
+    justify-content: space-between; /* Space between the brand and the nav items */
+    align-items: center; /* Vertically align items */
+    width: 100%; /* Make navbar span the entire width */
+    max-width: 1400px; /* Add max-width constraint */
+    background-color: #eae8db; /* Background color */
+    padding: 40px 20px;
+    margin: 0 auto 60px; /* Center align */
 }
 
 /* Brand styling */
 .navbar-brand {
     font-weight: bold; /* Make the brand name bold */
-    color: #14453d; /* Set font color to dark green */
-    font-size: 1.5rem; /* Increase font size for brand */
+    color: #14453d;
+    font-size: 20pt; /* Increase font size for brand */
+    text-decoration: none; /* Ensure no underline on hover as well */
 }
 
 /* Navigation links styling */
 .navbar-nav {
+    display: flex; /* Flexbox for horizontal alignment */
+    gap: 60px; /* Add space between navigation links */
     margin-left: auto; /* Push the nav items to the right */
 }
 
 .nav-link {
-    color: #14453d; /* Ensure link color matches font color */
-    font-size: 1.2rem; /* Increase font size for navigation links */
+    color: #3F6F67;
+    font-size: 1rem; /* Increase font size for navigation links */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline from links */
 }
 
 .nav-link:hover {
-    color: #0a2e27; /* Slightly darker shade for hover */
+    color: #0a2e27;
+    text-decoration: none; /* Ensure no underline on hover as well */
 }
+
 
 /* Landing page styling */
 .landing-page {
     text-align: center;
-    padding: 100px 20px; /* Increased padding to create more space above */
+    padding: 50px 20px; /* Increased padding to create more space above */
     background-color: #eae8db; /* Consistent background */
     width: 100%;
     max-width: 1000px; /* Updated max-width for the landing page text */
@@ -58,11 +67,11 @@ body {
 
 .landing-page h1 {
     font-family: 'Instrument Serif', serif; /* Font specifically for the main heading */
-    font-size: 4rem; /* Increased font size for main heading */
+    font-size: 48pt; /* Increased font size for main heading */
     color: #14453d; /* Set font color to dark green */
     font-weight: 400; /* Set font weight to 400 */
     letter-spacing: -2px; /* Further reduce space between letters */
-    margin-bottom: 50px; /* Increased space below the main heading */
+    margin-bottom: 25px; /* Increased space below the main heading */
     text-transform: uppercase; /* Make text uppercase */
 }
 
@@ -78,7 +87,6 @@ body {
 .landing-page h1 .stunning {
     font-size: 4.5rem; /* Match size with other heading words */
 }
-
 
 .landing-page p {
     font-family: 'Bitter', serif; /* Font for the subheading */
@@ -104,7 +112,7 @@ body {
     max-width: 200px; /* Set a maximum width */
     border-radius: 25px; /* Rounded corners */
     border: 2px solid #14453d; /* Match border color */
-    color: white; /* Text color set to white by default */
+    color: #eae8db; /* Text color set to white by default */
     background-color: #14453d; /* Dark green background by default */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
     width: auto; /* Allow button width to adjust to content */
@@ -120,26 +128,26 @@ body {
 /* Instructions section styling */
 .instructions-section {
     background-color: #14453d; /* Dark green background color */
-    color: white; /* Set text color to white */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    color: #eae8db; /* Set text */
+    font-family: 'Bitter', serif; /* Consistent font family */
     width: 100%; /* Full width of the page */
-    padding: 70px 0; /* Increased padding for more height */
+    padding: 50px 0; /* Increased padding for more height */
     text-align: left; /* Align text to the left */
 }
 
 .instructions-container {
     max-width: 1000px; /* Limit width to align with main content */
-    margin: 0 auto; /* Center the content within the section */
-    padding: 0 20px; /* Padding for responsive design */
+    margin: 0 auto 0; /* Center the content within the section */
+    padding: 0 0; /* Padding for responsive design */
 }
 
 .instructions-section h2 {
-    font-family: 'Instrument Serif', serif; /* Match font with main heading */
-    color: white; /* White color for headings in dark background */
+    font-family: 'Bitter', serif; /* Match font with main heading */
+    color: #eae8db; /* txt color */
     font-weight: 400; /* Match weight with main heading */
     letter-spacing: -2px; /* Match letter spacing with main heading */
     text-transform: uppercase; /* Match text transformation */
-    margin-bottom: 30px; /* Consistent spacing */
+    margin-bottom: 20px; /* Consistent spacing */
     font-size: 2.5rem; /* Increased font size for h2 elements */
     text-align: left; /* Align h2 elements to the left */
 }
@@ -147,8 +155,8 @@ body {
 .instructions-section p {
     font-size: 1.6rem; /* Increased font size for readability */
     text-align: left; /* Align text to the left for better readability */
-    color: white; /* Set text color to white */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    color: #eae8db; /* Set text color to white */
+    font-family: 'Bitter', serif; /* Consistent font family */
 }
 
 .instruction-step {
@@ -159,38 +167,37 @@ body {
 
 .step-number {
     font-size: 3rem; /* Larger font size for numbers */
-    font-family: 'Instrument Serif', serif; /* Change font to Instrument Serif */
+    font-family: 'EB Garamond', serif; /* Change font to Instrument Serif */
     font-weight: bold; /* Bold font for emphasis */
-    margin-right: 70px; /* Further increased space between number and text */
-    color: white; /* Set number color to white */
+    margin-right: 40px; /* Further increased space between number and text */
+    color: #eae8db; /* Set number color to white */
 }
 
 .step-text {
     font-size: 1.6rem; /* Increased font size for readability */
     text-align: left;
-    color: white; /* Set text color to white */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    color: #eae8db; /* Set text color to white */
+    font-family: 'Bitter', serif; /* Consistent font family */
 }
 
 /* Container for the main content */
 .container {
     width: 100%;
     max-width: 1000px; /* Match the width with the landing page */
-    padding: 30px;
+    padding: 45px;
     color: #14453d; /* Consistent font color */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
-    border-radius: 8px;
     margin: 50px auto; /* Add spacing above and below to match document style */
 }
 
 /* Style for the main content heading */
 .container h2 {
-    font-family: 'Instrument Serif', serif; /* Match font with main heading */
+    font-family: 'EB Garamond', serif; /* Match font with main heading */
     color: #14453d; /* Consistent color */
     font-weight: 400; /* Match weight with main heading */
     letter-spacing: -2px; /* Match letter spacing with main heading */
     text-transform: uppercase; /* Match text transformation */
-    margin-bottom: 30px; /* Consistent spacing */
+    margin-bottom: 10px; /* Consistent spacing */
     font-size: 2.5rem; /* Increase font size for h2 elements */
     text-align: left; /* Align h2 elements to the left */
 }
@@ -211,14 +218,14 @@ body {
 /* Active button styling */
 .option-buttons .btn.active {
     background-color: #14453d; /* Set active background color to the same green */
-    color: white; /* Set active text color to white */
+    color: #eae8db; /* Set active text color to white */
     border: 2px solid #14453d; /* Keep border consistent with background */
 }
 
 /* Hover effect for option buttons */
 .option-buttons .btn:hover {
     background-color: #14453d; /* Set hover background color to green */
-    color: white; /* Set hover text color to white */
+    color: #eae8db; /* Set hover text color to white */
     border: 2px solid #14453d; /* Maintain border color on hover */
 }
 
@@ -229,7 +236,7 @@ body {
 
 .option-buttons .btn:active {
     background-color: #14453d; /* Keep the same active background color */
-    color: white; /* Active state color stays white */
+    color: #eae8db; /* Active state color stays white */
     border: 2px solid #14453d; /* Keep border color green */
 }
 
@@ -249,7 +256,7 @@ body {
 
 .generate-btn:hover {
     background-color: #14453d;
-    color: white;
+    color: #eae8db;
     border: 2px solid #14453d;
 }
 
@@ -259,7 +266,7 @@ body {
     padding: 8px 16px; /* Padding similar to Start Now */
     border-radius: 25px; /* Rounded corners */
     border: 2px solid #14453d; /* Match border color */
-    color: white; /* Text color set to white */
+    color: #eae8db; /* Text color set to white */
     background-color: #14453d; /* Dark green background */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
     width: 100%; /* Maintain full width */
@@ -270,4 +277,31 @@ body {
     color: #14453d; /* Text color changes to dark green on hover */
     font-style: italic; /* Font changes from normal to italics on hover */
     border: 2px solid #14453d; /* Match border color */
+}
+
+
+/* Footer styling */
+.footer {
+    width: 100%; /* Full width of the page */
+    background-color: #14453d; /* Dark green background to match theme */
+    color: #eae8db; /* Light text color */
+    text-align: center; /* Center the text */
+    padding: 30px 0; /* Add some padding for spacing */
+    position: relative; /* Default position */
+    bottom: 0; /* Ensure it stays at the bottom */
+}
+
+.footer p {
+    margin: 0; /* Remove default margin from paragraph */
+    font-family: 'Albert Sans', sans-serif; /* Consistent font */
+    font-size: 1rem; /* Text size for footer */
+}
+
+.footer-link {
+    text-decoration: underline; /* Add underline to the link */
+    color: #eae8db; /* Keep the same light color as the rest of the footer */
+}
+
+.footer-link:hover {
+    color: #D1C15C; /* Optional: Change color on hover for better effect */
 }
