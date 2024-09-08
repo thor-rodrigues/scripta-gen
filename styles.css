@@ -19,15 +19,16 @@ body {
     width: 100%; /* Make navbar span the entire width */
     max-width: 1400px; /* Add max-width constraint */
     background-color: #eae8db; /* Background color */
-    padding: 10px 20px;
+    padding: 40px 20px;
     margin: 0 auto 60px; /* Center align */
 }
 
 /* Brand styling */
 .navbar-brand {
     font-weight: bold; /* Make the brand name bold */
-    color: #14453d; /* Set font color to dark green */
+    color: #14453d;
     font-size: 20pt; /* Increase font size for brand */
+    text-decoration: none; /* Ensure no underline on hover as well */
 }
 
 /* Navigation links styling */
@@ -38,18 +39,22 @@ body {
 }
 
 .nav-link {
-    color: #14453d; /* Ensure link color matches font color */
+    color: #3F6F67;
     font-size: 1.2rem; /* Increase font size for navigation links */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline from links */
 }
 
 .nav-link:hover {
-    color: #0a2e27; /* Slightly darker shade for hover */
+    color: #0a2e27;
+    text-decoration: none; /* Ensure no underline on hover as well */
 }
+
 
 /* Landing page styling */
 .landing-page {
     text-align: center;
-    padding: 100px 20px; /* Increased padding to create more space above */
+    padding: 50px 20px; /* Increased padding to create more space above */
     background-color: #eae8db; /* Consistent background */
     width: 100%;
     max-width: 1000px; /* Updated max-width for the landing page text */
@@ -62,11 +67,11 @@ body {
 
 .landing-page h1 {
     font-family: 'Instrument Serif', serif; /* Font specifically for the main heading */
-    font-size: 4rem; /* Increased font size for main heading */
+    font-size: 48pt; /* Increased font size for main heading */
     color: #14453d; /* Set font color to dark green */
     font-weight: 400; /* Set font weight to 400 */
     letter-spacing: -2px; /* Further reduce space between letters */
-    margin-bottom: 20px; /* Increased space below the main heading */
+    margin-bottom: 25px; /* Increased space below the main heading */
     text-transform: uppercase; /* Make text uppercase */
 }
 
@@ -124,25 +129,25 @@ body {
 .instructions-section {
     background-color: #14453d; /* Dark green background color */
     color: #eae8db; /* Set text */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    font-family: 'Bitter', serif; /* Consistent font family */
     width: 100%; /* Full width of the page */
-    padding: 80px 0; /* Increased padding for more height */
+    padding: 50px 0; /* Increased padding for more height */
     text-align: left; /* Align text to the left */
 }
 
 .instructions-container {
     max-width: 1000px; /* Limit width to align with main content */
-    margin: 0 auto; /* Center the content within the section */
+    margin: 0 auto 0; /* Center the content within the section */
     padding: 0 0; /* Padding for responsive design */
 }
 
 .instructions-section h2 {
-    font-family: 'Instrument Serif', serif; /* Match font with main heading */
+    font-family: 'Bitter', serif; /* Match font with main heading */
     color: #eae8db; /* txt color */
     font-weight: 400; /* Match weight with main heading */
     letter-spacing: -2px; /* Match letter spacing with main heading */
     text-transform: uppercase; /* Match text transformation */
-    margin-bottom: 30px; /* Consistent spacing */
+    margin-bottom: 20px; /* Consistent spacing */
     font-size: 2.5rem; /* Increased font size for h2 elements */
     text-align: left; /* Align h2 elements to the left */
 }
@@ -151,7 +156,7 @@ body {
     font-size: 1.6rem; /* Increased font size for readability */
     text-align: left; /* Align text to the left for better readability */
     color: #eae8db; /* Set text color to white */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    font-family: 'Bitter', serif; /* Consistent font family */
 }
 
 .instruction-step {
@@ -162,9 +167,9 @@ body {
 
 .step-number {
     font-size: 3rem; /* Larger font size for numbers */
-    font-family: 'Instrument Serif', serif; /* Change font to Instrument Serif */
+    font-family: 'EB Garamond', serif; /* Change font to Instrument Serif */
     font-weight: bold; /* Bold font for emphasis */
-    margin-right: 70px; /* Further increased space between number and text */
+    margin-right: 40px; /* Further increased space between number and text */
     color: #eae8db; /* Set number color to white */
 }
 
@@ -172,7 +177,7 @@ body {
     font-size: 1.6rem; /* Increased font size for readability */
     text-align: left;
     color: #eae8db; /* Set text color to white */
-    font-family: 'Albert Sans', sans-serif; /* Consistent font family */
+    font-family: 'Bitter', serif; /* Consistent font family */
 }
 
 /* Container for the main content */
@@ -188,7 +193,7 @@ body {
 
 /* Style for the main content heading */
 .container h2 {
-    font-family: 'Instrument Serif', serif; /* Match font with main heading */
+    font-family: 'EB Garamond', serif; /* Match font with main heading */
     color: #14453d; /* Consistent color */
     font-weight: 400; /* Match weight with main heading */
     letter-spacing: -2px; /* Match letter spacing with main heading */
