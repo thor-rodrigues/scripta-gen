@@ -34,13 +34,13 @@ body {
 /* Navigation links styling */
 .navbar-nav {
     display: flex; /* Flexbox for horizontal alignment */
-    gap: 50px; /* Add space between navigation links */
+    gap: 60px; /* Add space between navigation links */
     margin-left: auto; /* Push the nav items to the right */
 }
 
 .nav-link {
     color: #3F6F67;
-    font-size: 1.2rem; /* Increase font size for navigation links */
+    font-size: 1rem; /* Increase font size for navigation links */
     font-weight: bold;
     text-decoration: none; /* Remove underline from links */
 }
@@ -184,10 +184,9 @@ body {
 .container {
     width: 100%;
     max-width: 1000px; /* Match the width with the landing page */
-    padding: 30px;
+    padding: 45px;
     color: #14453d; /* Consistent font color */
     font-family: 'Albert Sans', sans-serif; /* Consistent font family */
-    border-radius: 8px;
     margin: 50px auto; /* Add spacing above and below to match document style */
 }
 
@@ -198,7 +197,7 @@ body {
     font-weight: 400; /* Match weight with main heading */
     letter-spacing: -2px; /* Match letter spacing with main heading */
     text-transform: uppercase; /* Match text transformation */
-    margin-bottom: 30px; /* Consistent spacing */
+    margin-bottom: 10px; /* Consistent spacing */
     font-size: 2.5rem; /* Increase font size for h2 elements */
     text-align: left; /* Align h2 elements to the left */
 }
@@ -219,14 +218,14 @@ body {
 /* Active button styling */
 .option-buttons .btn.active {
     background-color: #14453d; /* Set active background color to the same green */
-    color: white; /* Set active text color to white */
+    color: #eae8db; /* Set active text color to white */
     border: 2px solid #14453d; /* Keep border consistent with background */
 }
 
 /* Hover effect for option buttons */
 .option-buttons .btn:hover {
     background-color: #14453d; /* Set hover background color to green */
-    color: white; /* Set hover text color to white */
+    color: #eae8db; /* Set hover text color to white */
     border: 2px solid #14453d; /* Maintain border color on hover */
 }
 
@@ -237,7 +236,7 @@ body {
 
 .option-buttons .btn:active {
     background-color: #14453d; /* Keep the same active background color */
-    color: white; /* Active state color stays white */
+    color: #eae8db; /* Active state color stays white */
     border: 2px solid #14453d; /* Keep border color green */
 }
 
@@ -257,7 +256,7 @@ body {
 
 .generate-btn:hover {
     background-color: #14453d;
-    color: white;
+    color: #eae8db;
     border: 2px solid #14453d;
 }
 
@@ -267,7 +266,7 @@ body {
     padding: 8px 16px; /* Padding similar to Start Now */
     border-radius: 25px; /* Rounded corners */
     border: 2px solid #14453d; /* Match border color */
-    color: white; /* Text color set to white */
+    color: #eae8db; /* Text color set to white */
     background-color: #14453d; /* Dark green background */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
     width: 100%; /* Maintain full width */
@@ -278,4 +277,31 @@ body {
     color: #14453d; /* Text color changes to dark green on hover */
     font-style: italic; /* Font changes from normal to italics on hover */
     border: 2px solid #14453d; /* Match border color */
+}
+
+
+/* Footer styling */
+.footer {
+    width: 100%; /* Full width of the page */
+    background-color: #14453d; /* Dark green background to match theme */
+    color: #eae8db; /* Light text color */
+    text-align: center; /* Center the text */
+    padding: 30px 0; /* Add some padding for spacing */
+    position: relative; /* Default position */
+    bottom: 0; /* Ensure it stays at the bottom */
+}
+
+.footer p {
+    margin: 0; /* Remove default margin from paragraph */
+    font-family: 'Albert Sans', sans-serif; /* Consistent font */
+    font-size: 1rem; /* Text size for footer */
+}
+
+.footer-link {
+    text-decoration: underline; /* Add underline to the link */
+    color: #eae8db; /* Keep the same light color as the rest of the footer */
+}
+
+.footer-link:hover {
+    color: #D1C15C; /* Optional: Change color on hover for better effect */
 }
