@@ -97,3 +97,22 @@ document.addEventListener("DOMContentLoaded", function () {
         // You can pass these variables to another function or store them for further use
     });
 });
+
+const { exec } = require('child_process');
+
+generateButton.addEventListener('click', function () {
+    downloadButton.style.display = 'block';
+
+    const user_selected_document = selectedDocumentType;
+    const user_selected_style = selectedStyle;
+
+    // Run the Node.js script to save the selected values to a JSON file
+    exec(`node save_selection.js "${user_selected_document}" "${user_selected_style}"`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error: ${error}`);
+            return;
+        }
+        console.log(`Output: ${stdout}`);
+        console.error(`Stderr: ${stderr}`);
+    });
+});

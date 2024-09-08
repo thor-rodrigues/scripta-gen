@@ -1,6 +1,18 @@
+import json
+import os
 from langflow.load import run_flow_from_json
 from weasyprint import HTML, CSS
-import os
+
+# Load user selection from the JSON file
+with open('user_selection.json', 'r') as f:
+    selection = json.load(f)
+
+user_selected_document = selection['user_selected_document']
+user_selected_style = selection['user_selected_style']
+
+# Log the selected values (for debugging purposes)
+print(f"Selected Document Type: {user_selected_document}")
+print(f"Selected Style: {user_selected_style}")
 
 # Ask the user to enter the directory path (this will not be used for saving files)
 directory_path = input("Please enter the directory path: ")
